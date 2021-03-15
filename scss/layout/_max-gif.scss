@@ -1,0 +1,35 @@
+.figure {
+    height: inherit;
+    width: inherit;
+    background-color: $color-white;
+    @extend %figure-grid;
+    &__img {
+        width: 318px;
+        // height: 245px;
+        background-color: gray;
+        @extend %margin;
+        @include respond-to($breakpoint-tablet) {
+            width: 48%;
+        }
+    }
+    &__caption {
+        @include flex(row, center, flex-start);
+        padding-top: 14px;
+        margin: 0 7.7%;
+        @include respond-to($breakpoint-tablet) {
+            padding-top: 27px;
+            margin: 0 26%;
+        }
+    }
+    &__caption-text {
+        flex-grow: 2;
+        text-align: start;
+        color: $color-black;
+        & .p--small {
+            font-family: $secondary-font;
+        }
+        & .p--normal {
+            font-weight: bold;
+        }
+    }
+}

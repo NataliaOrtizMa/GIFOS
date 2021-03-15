@@ -1,0 +1,14 @@
+%index-grid {
+    display: grid;
+    grid-template-rows:100px 1fr 430px 201px;
+    @include respond-to($breakpoint-desktop) {
+        grid-template-rows:100px 1fr 640px 121px;
+    }
+}
+%figure-grid {
+    display: grid;
+    grid-template-rows:27vh 1fr 31vh;
+    @include respond-to($breakpoint-desktop) {
+        grid-template-rows:20vh 1fr 29vh;
+    }
+}

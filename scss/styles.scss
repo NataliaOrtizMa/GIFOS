@@ -1,0 +1,28 @@
+// Propiedades iniciales
+@import "./base/reset";
+
+// Librerías, Settings y variables
+@import "./lib/variables";
+@import "./lib/mixins";
+@import "./lib/extends";
+
+// Elementos base
+// (botones, links, tipografía)
+@import "./base/typography";
+@import "./base/links";
+
+// Componentes
+// (grids)
+@import "./components/grids";
+@import "./components/objects";
+@import "./components/buttons";
+@import "./components/icons";
+
+// Layout
+@import "./layout/layout";
+@import "./layout/header";
+@import "./layout/footer";
+@import "./layout/main";
+@import "./layout/trending";
+@import "./layout/max-gif";
+

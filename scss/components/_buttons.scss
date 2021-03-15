@@ -1,0 +1,31 @@
+%reset-button {
+    border: none;
+    background: none;
+    outline: none;
+    cursor: pointer;
+}
+%icons-cards {
+    width: 32px;
+    height: 32px;
+    border: 1px solid $color-gray-text;
+    border-radius: 6px;
+}
+.button {
+    @extend %reset-button;
+    @extend %icons-cards;
+    margin: 0 5px;
+}
+.button-close {
+    @extend %reset-button;
+    width: 24px;
+    height: 24px;
+    background-image: url(/img/close.svg);
+    background-repeat: no-repeat;
+    justify-self: end;
+    margin-top: 10vh;
+    margin-right: 7.7%;
+        @include respond-to($breakpoint-tablet) {
+            margin-top: 8.6vh;
+            margin-right: 19.3%;
+        }
+}

@@ -1,0 +1,59 @@
+//Colors
+$color-purple: #572EE5;
+$color-mint: #50E3C2;
+$color-gray-text: #9CAFC3;
+$color-gray-bg: #F3F5F8;
+$color-black: #000000;
+$color-white: #FFFFFF;
+$color-white-transparency: #FFFFFF80;
+$color-gray-transparency: #9CAFC38C;
+
+// Night mode colors
+$color-medium-gray: #37383C;
+$color-dark-gray: #222326;
+
+//Fonts
+$primary-font:'Montserrat', sans-serif;
+$secondary-font:'Roboto', sans-serif;
+
+//Font sizes
+$fs: (
+    "pc-big": 3.5rem,
+    "big":2.5rem,
+    "medium":2.0rem,
+    "pc-normal": 1.8rem,
+    "normal":1.6rem,
+    "small":1.5rem,
+    "x-small":1.4rem,
+    "pc-small": 1.3rem,
+);
+
+//Breakpoints
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+
+//icons
+$burguer-icons: (
+    "burguer":"/img/burger.svg",
+    "burger-modo-noct" : "/img/burger-modo-noct.svg",
+);
+$media-icons: (
+    "facebook": "/img/icon_facebook.svg",
+    "twitter": "/img/icon_twitter.svg",
+    "instagram": "/img/icon_instagram.svg",
+);
+$media-icons-hover: (
+    "facebook": "/img/icon_facebook_hover.svg",
+    "twitter": "/img/icon_twitter_hover.svg",
+    "instagram": "/img/icon_instagram_hover.svg",
+);
+$card-icons: (
+    "fav": "/img/icon-fav.svg",
+    "expand": "/img/icon-max-normal.svg",
+    "download": "/img/icon-download.svg",
+);
+$card-icons-hover: (
+    "fav": "/img/icon-fav-hover.svg",
+    "expand": "/img/icon-max-hover.svg",
+    "download": "/img/icon-download-hover.svg",
+);

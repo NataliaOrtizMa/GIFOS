@@ -1,0 +1,75 @@
+.trending {
+    background-color: $color-gray-bg;
+    padding: 46px 11px 82px 11px;
+    @include respond-to($breakpoint-desktop){
+        padding: 67px 11px 181px 11px;
+    }
+    width: 100vw;
+    &__p {
+        margin: 7px 0 32px 0;
+        @include respond-to($breakpoint-tablet){
+            margin: 12px 0 53px 0;
+        }
+        &--normal {
+            font-family: $secondary-font;
+        }
+        &--line::before {
+            content: "\A";
+            white-space: pre;
+            @include respond-to($breakpoint-tablet){
+                content: '';
+            }
+        }
+    }
+    &__carousel {
+        overflow-x: scroll;
+        overflow-y: hidden;
+        display: flex;
+        @include respond-to(1440px){
+            justify-content: center;
+        }
+    }
+}
+%trending-card {
+    width: 65%;
+    min-width: 243px;
+    height: 187px;
+}
+.carousel-item {
+    margin: 0 11px;
+    position: relative;
+    @extend %trending-card;
+    @include respond-to($breakpoint-desktop) {
+        min-height: 275px;
+    }
+    @include respond-to(1440px) {
+        width: 357px;
+    }
+    &__img {
+        background-color: gray;
+        width: 100%;
+        height: 100%;
+        
+    }
+    &__details {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
+    &__text {
+        text-align: start;
+        color: $color-white;
+        position: absolute;
+        top: 75%;
+        left: 13px;
+        font-family: $secondary-font;
+        &--user {
+            font-size: map-get($fs,small);
+        }
+        &--title {
+            height: 40px;
+            font-size: map-get($fs,normal);
+            font-weight: bold;
+        }
+    }
+}

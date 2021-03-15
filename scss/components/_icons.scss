@@ -1,0 +1,20 @@
+@each $media, $route in $media-icons {
+    .#{$media}-icon {
+        background-image: url($route);
+    }
+}
+@each $media, $route-hover in $media-icons-hover {
+    .#{$media}-icon:hover {
+        background-image: url($route-hover);
+    }
+}
+@each $card-icon, $route in $card-icons {
+    .#{$card-icon}-icon {
+        background-image: url($route);
+    }
+}
+@each $card-icon, $route-hover in $card-icons-hover {
+    .#{$card-icon}-icon:hover {
+        background-image: url($route-hover);
+    }
+}

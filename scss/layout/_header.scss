@@ -1,0 +1,94 @@
+.header {
+    padding: 0 7%;
+    border-top: 5px solid $color-purple;
+    @include flex(row,space-between,center);
+    color: $color-white;
+    background-color: $color-white;
+    box-shadow: 0 2px 4px 1px $color-gray-transparency;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    @include respond-to($breakpoint-tablet) {
+        padding: 0 5%;
+    }
+    @include respond-to(1440px) {
+        padding: 0 10%;
+    }
+    &__logo {
+        width: 50px;
+        @include respond-to($breakpoint-desktop) {
+            width: 60px;
+        }
+    }
+    input {
+        display: none;
+        &:checked ~ nav {
+            display: inline;
+            position: absolute;
+            top: 95px;
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 95px);
+            background-color: $color-purple;
+            padding-top: 18px;
+            opacity: 0.9;
+            & ul {
+                display: block;
+                & li {
+                    list-style: none;
+                    background-color: $color-purple;
+                    padding-bottom: 11px;
+                    padding-top: 14px;
+                    &:not(:last-child)::after {
+                        content: " ";
+                        display: block;
+                        margin: 0 auto;
+                        width: 41px;
+                        padding-top: 11px;
+                        border-bottom: 1px solid $color-white
+                    }
+                    & a {
+                        @extend %nav-mobile;
+                    }
+                }
+            }
+        }
+        &:not(:checked) ~ label::after {
+            content: url("/img/burger.svg");
+            @include respond-to($breakpoint-desktop) {
+                display: none;
+            }
+        }
+        &:checked ~ label::after {
+            content: url("/img/close.svg");
+            @include respond-to($breakpoint-desktop) {
+                display: none;
+            }
+        }
+    }
+    label {
+        color: $color-purple;
+    }
+}
+.nav {
+    display: none;
+    @include respond-to($breakpoint-desktop) {
+        display: inline;
+    }
+    & ul {
+        @include respond-to($breakpoint-desktop) {
+            display: flex;
+            width: 480px;
+        }
+    }
+    & li {
+        list-style: none;
+        & a {
+            @extend %nav-desktop;
+        }
+        @include respond-to($breakpoint-desktop) {
+            text-transform: uppercase;
+            padding: 0 20px;
+        }
+    }
+}

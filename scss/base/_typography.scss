@@ -1,0 +1,67 @@
+html{
+    font-family: $primary-font;
+    font-size: 62.5%;
+    color: $color-purple;
+    text-align: center;
+}
+.h1 {
+    font-size: map-get($fs,"big");
+    font-weight: bold;
+    @include respond-to($breakpoint-desktop) {
+        font-size: map-get($fs,"pc-big");
+    }
+    &--green {
+        color: $color-mint;
+    }
+}
+.h2 {
+    font-size: map-get($fs,medium);
+    @include respond-to($breakpoint-desktop) {
+        font-size: map-get($fs,"big");
+    }
+}
+.h3 {
+    font-size: map-get($fs,normal);
+    @include respond-to($breakpoint-desktop) {
+        font-size: map-get($fs,"pc-normal");
+    }
+}
+.p {
+    &--normal {
+        font-size: map-get($fs,normal);
+        color: $color-black;
+        @include respond-to($breakpoint-desktop) {
+            font-size: map-get($fs,"pc-normal");
+        }
+    }
+    &--small {
+        font-size: map-get($fs,small);
+    }
+    &--xsmall {
+        font-size: map-get($fs,x-small);
+    }
+}
+.footer {
+    font-family: $secondary-font;
+    @include respond-to($breakpoint-desktop) {
+        font-size: map-get($fs,"pc-small");
+    }
+}
+input {
+    font-family: $secondary-font;
+    &::placeholder {
+        font-family: $secondary-font;
+        font-size: map-get($fs,normal);
+        color: $color-gray-text;
+    }
+}
+label {
+    font-size: map-get($fs, medium);
+}
+li {
+    font-size: map-get($fs, small);
+    font-weight: bold;
+    @include respond-to($breakpoint-tablet) {
+        font-size: map-get($fs, "pc-small");
+    }
+}

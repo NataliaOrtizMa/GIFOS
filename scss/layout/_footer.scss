@@ -1,0 +1,32 @@
+.footer {
+    border-bottom: 5px solid $color-purple;
+    color: $color-black;
+    padding: 47px 10% 28px 10%;
+    @include flex(column,space-between,center);
+    @include respond-to($breakpoint-tablet){
+        flex-direction: row;
+        font-size: map-get($fs,"pc-small");;
+    }
+    &__media {
+        width: 97px;
+        @include flex(row,space-between,center);
+        & a {
+            width: 20px;
+            @extend %icon;
+        }
+        @include respond-to($breakpoint-tablet){
+            text-align: end;
+        }
+    }
+    &__p {
+        @include respond-to($breakpoint-tablet){
+            &--share {
+                padding-right: 17px;
+            }
+            &--copy {
+                flex-grow: 2;
+                text-align: end;
+            }
+        }
+    }
+}

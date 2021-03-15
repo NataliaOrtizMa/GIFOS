@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIFOS</title>
+    <link rel="icon" href="./img/burger.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Roboto:wght@400;900&display=swap" rel="stylesheet">
+</head>
+<body class="index">
+    <header class="header" id="header">
+        <object class="header__logo" data="./img/logo-mobile.svg" type="image/svg+xml"></object>
+        <div>
+            <input class="checkbox" id="checkbox" type="checkbox" name="checkbox" value="text">
+            <label for="checkbox"></label>
+            <nav class="nav">
+                <ul>
+                    <li><a href="/">Modo nocturno</a></li>
+                    <li><a href="/">Favoritos</a></li>
+                    <li><a href="/">Mis GIFOS</a></li>
+                    <li><a href="/">Más</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main class="main">
+        <h1 class="main__h1 h1">Inspírate, busca, guarda, y crea los mejores <span class="h1--green">GIFOS</span></h1>
+        <object class="main__object" data="./img/ilustra_header.svg" type="image/svg+xml"></object>
+        <div class="search-bar" id="search-bar">
+            <input class="search-bar__input" type="text" placeholder="Busca GIFOS y más">
+            <button class="search-bar__button" type="submit"><object data="./img/icon-search.svg" type="image/svg+xml"></object></button>
+        </div>
+        <h3 class="main__h3 h3">Trending:</h3>
+        <p class="main__p p--xsmall">Reactions, Entertainment, Sports, Stickers, Artists</p>
+    </main>
+
+    <section class="trending">
+        <h2 class="trending__h2 h2">Trending GIFOS</h2>
+        <p class="trending__p p--normal">Mira los últimos <span class="trending__p--line"></span> GIFOS de nuestra comunidad.</p>
+        <div class="trending__carousel">
+            <div class="carousel-item">
+                <div class="carousel-item__img"></div>
+                <div class="carousel-item__details">
+                    <button class="button fav-icon" type="submit"></button>
+                    <button class="button expand-icon" type="submit"></button>
+                    <button class="button download-icon" type="submit"></button>
+                </div>
+                <div class="carousel-item__text">
+                    <p class="carousel-item__text--user">User</p>
+                    <p class="carousel-item__text--title">Título GIFO</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="carousel-item__img"></div>
+                <div class="carousel-item__details">
+                    <button class="button fav-icon" type="submit"></button>
+                    <button class="button expand-icon" type="submit"></button>
+                    <button class="button download-icon" type="submit"></button>
+                </div>
+                <div class="carousel-item__text">
+                    <p class="carousel-item__text--user">User</p>
+                    <p class="carousel-item__text--title">Título GIFO</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="carousel-item__img"></div>
+                <div class="carousel-item__details">
+                    <button class="button fav-icon" type="submit"></button>
+                    <button class="button expand-icon" type="submit"></button>
+                    <button class="button download-icon" type="submit"></button>
+                </div>
+                <div class="carousel-item__text">
+                    <p class="carousel-item__text--user">User</p>
+                    <p class="carousel-item__text--title">Título GIFO</p>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p class="footer__p--share p--small">Compartir en:</p>
+        <div class="footer__media">
+            <a class="facebook-icon" href="https://www.facebook.com" target="_blank"></a>
+            <a class="twitter-icon" href="https://www.twitter.com" target="_blank"></a>
+            <a class="instagram-icon" href="https://www.instagram.com/" target="_blank"></a>
+        </div>
+        <p class="footer__p--copy p--xsmall">&#xa9; GIFOS 2020 All Rights Reserved</p>
+    </footer>
+
+    <script src="./scripts/search-bar.js"></script>
+</body>
+</html>
