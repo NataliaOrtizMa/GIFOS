@@ -164,7 +164,7 @@ footer__icon {
 .button-close {
   width: 24px;
   height: 24px;
-  background-image: url(/img/close.svg);
+  background-image: url("../img/close.svg");
   background-repeat: no-repeat;
   justify-self: end;
   margin-top: 10vh;
@@ -178,51 +178,51 @@ footer__icon {
 }
 
 .facebook-icon {
-  background-image: url("/img/icon_facebook.svg");
+  background-image: url("../img/icon_facebook.svg");
 }
 
 .twitter-icon {
-  background-image: url("/img/icon_twitter.svg");
+  background-image: url("../img/icon_twitter.svg");
 }
 
 .instagram-icon {
-  background-image: url("/img/icon_instagram.svg");
+  background-image: url("../img/icon_instagram.svg");
 }
 
 .facebook-icon:hover {
-  background-image: url("/img/icon_facebook_hover.svg");
+  background-image: url("../img/icon_facebook_hover.svg");
 }
 
 .twitter-icon:hover {
-  background-image: url("/img/icon_twitter_hover.svg");
+  background-image: url("../img/icon_twitter_hover.svg");
 }
 
 .instagram-icon:hover {
-  background-image: url("/img/icon_instagram_hover.svg");
+  background-image: url("../img/icon_instagram_hover.svg");
 }
 
 .fav-icon {
-  background-image: url("/img/icon-fav.svg");
+  background-image: url("../img/icon-fav.svg");
 }
 
 .expand-icon {
-  background-image: url("/img/icon-max-normal.svg");
+  background-image: url("../img/icon-max-normal.svg");
 }
 
 .download-icon {
-  background-image: url("/img/icon-download.svg");
+  background-image: url("../img/icon-download.svg");
 }
 
 .fav-icon:hover {
-  background-image: url("/img/icon-fav-hover.svg");
+  background-image: url("../img/icon-fav-hover.svg");
 }
 
 .expand-icon:hover {
-  background-image: url("/img/icon-max-hover.svg");
+  background-image: url("../img/icon-max-hover.svg");
 }
 
 .download-icon:hover {
-  background-image: url("/img/icon-download-hover.svg");
+  background-image: url("../img/icon-download-hover.svg");
 }
 
 .max-gif {
@@ -242,6 +242,7 @@ footer__icon {
   box-shadow: 0 2px 4px 1px #9CAFC38C;
   position: sticky;
   top: 0;
+  z-index: 10;
 }
 @media only screen and (min-width: 768px) {
   .header {
@@ -293,7 +294,7 @@ footer__icon {
   border-bottom: 1px solid #FFFFFF;
 }
 .header input:not(:checked) ~ label::after {
-  content: url("/img/burger.svg");
+  content: url("../img/burger.svg");
 }
 @media only screen and (min-width: 1024px) {
   .header input:not(:checked) ~ label::after {
@@ -301,7 +302,7 @@ footer__icon {
   }
 }
 .header input:checked ~ label::after {
-  content: url("/img/close.svg");
+  content: url("../img/close.svg");
 }
 @media only screen and (min-width: 1024px) {
   .header input:checked ~ label::after {
