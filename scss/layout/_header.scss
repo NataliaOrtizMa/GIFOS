@@ -54,13 +54,13 @@
             }
         }
         &:not(:checked) ~ label::after {
-            content: url("/img/burger.svg");
+            content: url("../img/burger.svg");
             @include respond-to($breakpoint-desktop) {
                 display: none;
             }
         }
         &:checked ~ label::after {
-            content: url("/img/close.svg");
+            content: url("../img/close.svg");
             @include respond-to($breakpoint-desktop) {
                 display: none;
             }

@@ -19,7 +19,7 @@
     @extend %reset-button;
     width: 24px;
     height: 24px;
-    background-image: url(/img/close.svg);
+    background-image: url("../img/close.svg");
     background-repeat: no-repeat;
     justify-self: end;
     margin-top: 10vh;
