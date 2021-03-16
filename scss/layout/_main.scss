@@ -34,6 +34,7 @@
     height: 50px;
     border: 1px solid $color-purple;
     border-radius: 27px;
+    z-index: 10;
     @extend %margin;
     @include flex(row,space-around,center);
     &__input {

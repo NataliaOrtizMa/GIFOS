@@ -25,7 +25,7 @@
         overflow-x: scroll;
         overflow-y: hidden;
         display: flex;
-        @include respond-to(1440px){
+        @include respond-to($breakpoint-desktop){
             justify-content: center;
         }
     }
@@ -39,19 +39,31 @@
     margin: 0 11px;
     position: relative;
     @extend %trending-card;
+    background-color: gray;
     @include respond-to($breakpoint-desktop) {
-        min-height: 275px;
+        width: 200px;
     }
     @include respond-to(1440px) {
         width: 357px;
+        min-height: 275px;
     }
     &__img {
-        background-color: gray;
         width: 100%;
         height: 100%;
-        
+        object-fit: cover;
     }
     &__details {
+        background-color: $color-purple-transparency;
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        bottom: 101%;
+    }
+    &:hover &__details {
+        opacity: 1;
+    }
+    &__icons {
         position: absolute;
         top: 10px;
         right: 10px;
