@@ -1,0 +1,37 @@
+%no-results-image {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    margin-top: 109px;
+    margin-bottom: 29px;
+}
+%no-results-text {
+    color: $color-mint;
+    font-size: 2.2rem;
+    font-weight: bold;
+}
+.no-results {
+    &__search {
+        @extend %no-results-image;
+        background-image: url("../img/icon-busqueda-sin-resultado.svg");
+    }
+    &__favorites {
+        @extend %no-results-image;
+        background-image: url("../img/icon-fav-sin-contenido.svg")
+    }
+    &__gifos {
+        @extend %no-results-image;
+        background-image: url("../img/icon-mis-gifos-sin-contenido.svg")
+    }
+    &__text {
+        @extend %no-results-text;
+        width: 85%;
+        margin: 0 auto;
+        &--span::before{
+            @include respond-to($breakpoint-tablet){
+                content: "\A";
+                white-space: pre;
+            }
+        }
+    }
+}

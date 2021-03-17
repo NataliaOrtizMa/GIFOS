@@ -10,13 +10,14 @@
 // (botones, links, tipografía)
 @import "./base/typography";
 @import "./base/links";
+@import "./base/buttons";
 
 // Componentes
 // (grids)
 @import "./components/grids";
 @import "./components/objects";
-@import "./components/buttons";
 @import "./components/icons";
+@import "./components/divisory-line";
 
 // Layout
 @import "./layout/layout";
@@ -25,4 +26,6 @@
 @import "./layout/main";
 @import "./layout/trending";
 @import "./layout/max-gif";
-
+@import "./layout/gifos-gallery";
+@import "./layout/favorites";
+@import "./layout/no_results";

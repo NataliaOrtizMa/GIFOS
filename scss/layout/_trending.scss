@@ -13,7 +13,7 @@
         &--normal {
             font-family: $secondary-font;
         }
-        &--line::before {
+        &--span::before {
             content: "\A";
             white-space: pre;
             @include respond-to($breakpoint-tablet){

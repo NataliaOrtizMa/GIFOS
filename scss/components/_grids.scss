@@ -4,7 +4,7 @@
     @include respond-to($breakpoint-desktop) {
         grid-template-rows:100px 1fr 520px 121px;
     }
-    @include respond-to(1440px) {
+    @include respond-to($breakpoint-big-desktop) {
         grid-template-rows:100px 1fr 640px 121px;
     }
 }

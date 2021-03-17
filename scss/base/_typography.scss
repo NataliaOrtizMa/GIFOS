@@ -16,6 +16,7 @@ html{
 }
 .h2 {
     font-size: map-get($fs,medium);
+    margin-top: 5px;
     @include respond-to($breakpoint-desktop) {
         font-size: map-get($fs,"big");
     }
@@ -54,9 +55,6 @@ input {
         font-size: map-get($fs,normal);
         color: $color-gray-text;
     }
-}
-label {
-    font-size: map-get($fs, medium);
 }
 li {
     font-size: map-get($fs, small);
