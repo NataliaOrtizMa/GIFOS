@@ -82,6 +82,7 @@ input.addEventListener("keyup", async function (ev) {
         texto = input.value;
         suggestionsList.style.display = 'none';
         divsuggestionsList.style.display = 'none';
+        searchBarIcon.style.visibility = 'hidden';
         count = 0;
         displayGifos(texto, count);
         input.blur();

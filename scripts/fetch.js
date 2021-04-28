@@ -50,7 +50,6 @@ async function trendingGifs(){
 
 (async function () {
     const gifsArray = await trendingGifs();
-    console.log(gifsArray);
     const trendingGifsContainer = document.getElementById("images-container");
     for(var i=0; i<3; i++) {
         const carouselItem = document.createElement('div');
