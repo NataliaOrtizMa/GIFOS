@@ -60,17 +60,15 @@ input.oninput = async function() {
     removeAllChildNodes(suggestionsList);
     suggestionsList.style.display = 'block';
     divsuggestionsList.style.display = 'block';
-    searchButton.style.backgroundImage = "url('../img/close.svg')";
+    searchButton.style.backgroundImage = "url('./img/close.svg')";
 
-    // console.log(autoTerms.data.length);
     if (entry.length == 0 || (autoTerms.data.length == 0)) {
         divsuggestionsList.style.display = 'none';
-        // searchButton.style.backgroundImage = "url('../img/icon-search.svg')";
         searchBarIcon.style.visibility = 'hidden';
     }
     else {
         searchBarIcon.style.visibility = 'visible';
-        searchBarIcon.style.backgroundImage = "url('../img/search-big.svg')";
+        searchBarIcon.style.backgroundImage = "url('./img/search-big.svg')";
         for(let i=0; i<autoTerms.data.length; i++) {
             const suggestionItem = document.createElement('li');
             suggestionItem.textContent = autoTerms.data[i].name;
@@ -109,7 +107,8 @@ searchButton.addEventListener("click", async function (ev) {
         suggestionsList.style.display = 'none';
         divsuggestionsList.style.display = 'none';
         searchContainer.style.display = 'none';
-        searchButton.style.backgroundImage = "url('../img/icon-search.svg')";
+        searchButton.style.backgroundImage = "url('./img/icon-search.svg')";
+        
         searchBarIcon.style.visibility = 'hidden';
         noResultsContainer.style.display = 'none';
         count = 0;
@@ -123,7 +122,7 @@ trendContainer.addEventListener("click", async function (ev) {
         count = 0;
         displayGifos(texto, count);
         searchBarIcon.style.visibility = 'hidden';
-        searchButton.style.backgroundImage = "url('../img/close.svg')";
+        searchButton.style.backgroundImage = "url('./img/close.svg')";
     }
 })
 
