@@ -30,6 +30,7 @@
         }
 }
 .watch-more-button {
+    display: none;
     @extend %reset-button;
     width: 127px;
     height: 50px;
@@ -37,4 +38,16 @@
     &:hover {
         background-image: url("../img/CTA-ver-mas-hover.svg");
     }
+}
+.start-button {
+    @extend %reset-button;
+    width: 127px;
+    height: 50px;
+    border-radius: 25px;
+    color: $color-purple;
+    font-size: 13px;
+    font-weight: bold;
+    font-family: $primary-font;
+    border: 1px solid $color-purple;
+    margin-top: 20px;
 }

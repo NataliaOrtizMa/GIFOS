@@ -4,7 +4,7 @@
     @include respond-to($breakpoint-desktop){
         padding: 67px 11px 181px 11px;
     }
-    width: 100vw;
+    // width: 100vw;
     &__p {
         margin: 7px 0 32px 0;
         @include respond-to($breakpoint-tablet){
@@ -29,13 +29,43 @@
             justify-content: center;
         }
     }
+    height: 430px;
+    @include respond-to($breakpoint-desktop) {
+        height:520px;
+    }
+    @include respond-to($breakpoint-big-desktop) {
+        height:640px;
+    }
 }
 %trending-card {
     width: 65%;
     min-width: 243px;
     height: 187px;
 }
+
+// ::-webkit-scrollbar {
+//     width: 12px;
+// }
+
+// /* Track */
+// ::-webkit-scrollbar-track {
+//     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+//     -webkit-border-radius: 10px;
+//     border-radius: 10px;
+// }
+
+// /* Handle */
+// ::-webkit-scrollbar-thumb {
+//     -webkit-border-radius: 10px;
+//     border-radius: 10px;
+//     background: red; 
+//     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+// }
+// ::-webkit-scrollbar-thumb:window-inactive {
+//     background: blue; 
+// }
 .carousel-item {
+    cursor: pointer;
     margin: 0 11px;
     position: relative;
     @extend %trending-card;

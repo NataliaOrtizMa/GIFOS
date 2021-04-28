@@ -1,16 +1,28 @@
+.max-gif {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+}
 .figure {
     height: inherit;
     width: inherit;
-    background-color: $color-white;
+    background-color: #FFFFFFF9;
     @extend %figure-grid;
     &__img {
         width: 318px;
-        // height: 245px;
-        background-color: gray;
+        height: 245px;
+        // object-fit: cover;
+        // background-color: gray;
         @extend %margin;
         @include respond-to($breakpoint-tablet) {
             width: 48%;
         }
+        @include respond-to($breakpoint-desktop) {
+            width: 700px;
+            height: 400px;
+        }   
     }
     &__caption {
         @include flex(row, center, flex-start);
@@ -23,6 +35,7 @@
     }
     &__caption-text {
         flex-grow: 2;
+        width: 50px;
         text-align: start;
         color: $color-black;
         & .p--small {

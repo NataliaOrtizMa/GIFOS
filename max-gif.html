@@ -9,18 +9,22 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Roboto:wght@400;900&display=swap" rel="stylesheet">
 </head>
-<body class="max-gif">
+<body>
+    <div class="max-gif">
         <figure class="figure">
-            <button class="button-close close-icon" type="submit"></button>
-            <div class="figure__img"></div>
+            <button class="button-close close-icon" id="button-close" type="submit"></button>
+            <img class="figure__img">
+            <!-- <img class="figure__img" src="https://images.pexels.com/photos/4220967/pexels-photo-4220967.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"> -->
             <figcaption class="figure__caption">
                 <div class="figure__caption-text">
-                    <p class="p--small">User</p>
-                    <p class="p--normal">Título GIFO</p>
+                    <p class="p--small" id="gif-user">User</p>
+                    <p class="p--normal" id="gif-title">Título GIFO</p>
                 </div>
                 <button class="button fav-icon" type="submit"></button>
                 <button class="button download-icon" type="submit"></button>
             </figcaption>
         </figure>
+    </div>
+        
 </body>
 </html>

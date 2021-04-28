@@ -1,33 +1,36 @@
-const apiKey = "9P4km8pnyUnE8G052TCp83ChV6qMyjLw";
+function capitalize(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+}
 
-let input = document.querySelector("#search-bar__input").value;
-console.log(input);
+const downloadGifBtn = document.getElementById("button-download");
 
-async function autocomplete(){
-    const elFetch = await fetch(`https://api.giphy.com/v1/gifs/search/tags?q=masc&api_key=${apiKey}`);
-    laData = await elFetch.json();
-    console.log(laData);
-}
-async function search(){
-    const elFetch = await fetch(`https://api.giphy.com/v1/gifs/search?q=hola&api_key=${apiKey}`);
-    laData = await elFetch.json();
-    console.log(laData);
-}
-async function trending(){
-    const elFetch = await fetch(`https://api.giphy.com/v1/trending/searches?&api_key=${apiKey}`);
-    laData = await elFetch.json();
-    console.log(laData);
-}
-async function searchSuggestions(){
-    const elFetch = await fetch(`https://api.giphy.com/v1/gifs/trending?&api_key=${apiKey}`);
-    laData = await elFetch.json();
-    console.log(laData);
-}
-autocomplete();
-search();
-trending();
-searchSuggestions();
+window.addEventListener("load", downloadImageUsingLinkAndBlob);
 
-// const apiKey = "VZ4N6ebz6BSdgrhUNiKAAU0dNYws5GSn";
-// blob
-// const apiKey = "0m6p9UIK0QqEfA8GmlLnGoKcW873s8Ld";
+        function downloadImageUsingLinkAndBlob(){
+            // const image = document.querySelector("#img");
+            downloadGifBtn.addEventListener("click", (event) => { //El click no va aquí, coger url de imagen
+                const url = event.target.src;
+                getImage(url);
+            });
+            // ev.target.info.gifUserName
+
+            async function getImage(url) {
+                const imageFetch = await fetch(url);
+                const file = await imageFetch.blob();
+
+                const a = document.createElement("a");
+                a.download = "myImage";
+
+                const urlBlob = URL.createObjectURL(file);
+                // console.log(urlBlob);
+
+                a.href = urlBlob;
+                a.textContent = "Download";
+                
+                console.log(imageFetch);
+                console.log(urlBlob);
+
+                URL.revokeObjectURL(urlBlob);
+                document.body.appendChild(a);
+            }
+        }

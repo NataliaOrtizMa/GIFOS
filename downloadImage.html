@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <div>
+            <canvas></canvas>
+            <img id="img" src="https://images.pexels.com/photos/4077180/pexels-photo-4077180.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" width="600" height="120">
+        </div>
+    </form>
+</body>
+
+    <script type="text/javascript">
+        window.addEventListener("load", downloadImageUsingLinkAndBlob);
+
+        function downloadImageUsingLinkAndBlob(){
+            const image = document.querySelector("#img");
+            image.addEventListener("click", (event) => {
+                const url = event.target.src;
+                getImage(url);
+            });
+
+            async function getImage(url) {
+                const imageFetch = await fetch(url);
+                const file = await imageFetch.blob();
+
+                const a = document.createElement("a");
+                a.download = "myImage";
+
+                const urlBlob = URL.createObjectURL(file);
+                // console.log(urlBlob);
+
+                a.href = urlBlob;
+                a.textContent = "Download";
+                
+                console.log(urlBlob);
+
+                URL.revokeObjectURL(urlBlob);
+                document.body.appendChild(a);
+            }
+        }
+    </script>
+</html>

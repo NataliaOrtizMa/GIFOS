@@ -1,0 +1,33 @@
+.create-gifo {
+    &__screen {
+        width: 688px;
+        height: 390px;
+        border: 1px solid $color-purple;
+        margin: 0 auto;
+        padding-top: 134px;
+        padding-bottom: 48px;
+        
+        & p {
+            color: $color-black;
+            height: 135px;
+            font-family: $secondary-font;
+            font-size: 1.6rem;
+        }
+    }
+    &__p--span::before{
+        @include respond-to($breakpoint-tablet){
+            content: "\A";
+            white-space: pre;
+        }
+    }
+    &__steps {
+        height: 75px;
+    }
+    &__division {
+        width: 796px;
+        height: 7px;
+        border-radius: 10px;
+        background-color: $color-purple;
+        margin: 0 auto;
+    }
+}

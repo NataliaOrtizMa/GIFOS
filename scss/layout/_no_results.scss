@@ -11,6 +11,8 @@
     font-weight: bold;
 }
 .no-results {
+    display: none;
+    margin-bottom: 80px;
     &__search {
         @extend %no-results-image;
         background-image: url("../img/icon-busqueda-sin-resultado.svg");

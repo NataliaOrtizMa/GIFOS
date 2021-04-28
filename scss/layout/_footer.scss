@@ -29,4 +29,8 @@
             }
         }
     }
+    height: 201px;
+    @include respond-to($breakpoint-desktop) {
+        height: 121px;
+    }
 }

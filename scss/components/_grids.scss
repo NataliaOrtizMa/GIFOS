@@ -12,6 +12,6 @@
     display: grid;
     grid-template-rows:27vh 1fr 31vh;
     @include respond-to($breakpoint-desktop) {
-        grid-template-rows:20vh 1fr 29vh;
+        grid-template-rows:20vh 1fr 1fr;
     }
 }
