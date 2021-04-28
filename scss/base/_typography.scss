@@ -40,6 +40,9 @@ html{
     }
     &--xsmall {
         font-size: map-get($fs,x-small);
+        @include respond-to($breakpoint-desktop) {
+            font-size: map-get($fs,"normal");
+        }
     }
 }
 .footer {
