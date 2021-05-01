@@ -41,11 +41,14 @@
     width: 65%;
     min-width: 243px;
     height: 187px;
+    @include respond-to($breakpoint-tablet){
+        width: 50px;
+    }
 }
 
-// ::-webkit-scrollbar {
-//     width: 12px;
-// }
+::-webkit-scrollbar {
+    width: 0px;
+}
 
 // /* Track */
 // ::-webkit-scrollbar-track {
@@ -66,7 +69,7 @@
 // }
 .carousel-item {
     cursor: pointer;
-    margin: 0 11px;
+    margin: 11px 11px;
     position: relative;
     @extend %trending-card;
     background-color: gray;
@@ -102,7 +105,8 @@
         text-align: start;
         color: $color-white;
         position: absolute;
-        top: 75%;
+        width: 90%;
+        top: 65%;
         left: 13px;
         font-family: $secondary-font;
         &--user {

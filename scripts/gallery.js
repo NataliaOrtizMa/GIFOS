@@ -38,19 +38,37 @@ async function displayGifos(texto, count) {
     }
 }
 
-function gifosGallery(searchResults) {
+async function gifosGallery(searchResults) {
     for(var i=0; i<12; i++) {
+        const galleryItem = document.createElement('div');
+        galleryItem.classList.add("carousel-item");
         const imagen = document.createElement('img');
-        imagen.classList.add("gallery__gifo");
-        imagen.src = searchResults.data[i].images.original.webp;
-        searchdiv.append(imagen);
+        imagen.classList.add("carousel-item__img");
+        imagen.style.display = 'inline';
+        
+        
 
         let Gif = {
-            source: searchResults.data[i].images.original.webp,
+            source: searchResults.data[i].images.fixed_width_still.url,
+            sourceQuality: searchResults.data[i].images.fixed_width.webp,
+            downloadUrl: searchResults.data[i].images.original.url,
             gifUserName: searchResults.data[i].username ? searchResults.data[i].username : 'No Username',
             gifName: searchResults.data[i].title ? searchResults.data[i].title : 'No Title'
         };
         imagen.info = Gif;
+        imagen.src = Gif.source;
+
+        galleryItem.append(imagen);
+        hoverItems(galleryItem,imagen.info.gifUserName, imagen.info.gifName);
+        searchdiv.append(galleryItem);
+        // searchdiv.append(imagen);
+
+        // fetchBlob(imagen);  
+        // const imageFetch = await fetch(imagen.info.downloadUrl);
+        // let File = await imageFetch.blob();
+        // const urlBlob = URL.createObjectURL(File);
+        // imagen.file = File;
+        // imagen.blob = urlBlob;
     }
 }
 
@@ -135,3 +153,5 @@ button.addEventListener("click", async function () {
 
 
 // blob
+// Agregar btn ver más cuando no hay más resultados
+// Arreglar cuadricula cuando no hay tantos resultados

@@ -612,10 +612,19 @@ footer__icon {
   min-width: 243px;
   height: 187px;
 }
+@media only screen and (min-width: 768px) {
+  .carousel-item {
+    width: 50px;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+}
 
 .carousel-item {
   cursor: pointer;
-  margin: 0 11px;
+  margin: 11px 11px;
   position: relative;
   background-color: gray;
 }
@@ -655,7 +664,8 @@ footer__icon {
   text-align: start;
   color: #FFFFFF;
   position: absolute;
-  top: 75%;
+  width: 90%;
+  top: 65%;
   left: 13px;
   font-family: "Roboto", sans-serif;
 }
@@ -684,6 +694,7 @@ footer__icon {
 .figure__img {
   width: 318px;
   height: 245px;
+  background-color: gray;
 }
 @media only screen and (min-width: 768px) {
   .figure__img {
@@ -730,6 +741,11 @@ footer__icon {
 
 .gallery {
   margin: 28px 2.8% 78px 2.8%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
 @media only screen and (min-width: 768px) {
   .gallery {
@@ -737,6 +753,7 @@ footer__icon {
   }
 }
 .gallery__gifo {
+  background-color: gray;
   width: 41.6%;
   height: 120px;
   margin: 10px;

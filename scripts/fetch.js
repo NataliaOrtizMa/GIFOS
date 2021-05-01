@@ -1,6 +1,6 @@
 const url = "https://api.giphy.com/v1/";
-const apiKey = "9P4km8pnyUnE8G052TCp83ChV6qMyjLw";
-// const apiKey = "VZ4N6ebz6BSdgrhUNiKAAU0dNYws5GSn";
+// const apiKey = "9P4km8pnyUnE8G052TCp83ChV6qMyjLw";
+const apiKey = "VZ4N6ebz6BSdgrhUNiKAAU0dNYws5GSn";
 // const apiKey = "0m6p9UIK0QqEfA8GmlLnGoKcW873s8Ld";
 
 async function autocomplete(input){
@@ -51,22 +51,34 @@ async function trendingGifs(){
 (async function () {
     const gifsArray = await trendingGifs();
     const trendingGifsContainer = document.getElementById("images-container");
+    // console.log(gifsArray);
     for(var i=0; i<3; i++) {
         const carouselItem = document.createElement('div');
         carouselItem.classList.add("carousel-item");
         const imagen = document.createElement('img');
-
+        
         let Gif = {
-            source: gifsArray.data[i].images.original.webp,
+            source: gifsArray.data[i].images.fixed_width_still.url,
+            sourceQuality: gifsArray.data[i].images.fixed_width.webp,
+            downloadUrl: gifsArray.data[i].images.original.url,
             gifUserName: gifsArray.data[i].username ? gifsArray.data[i].username : 'No Username',
-            gifName: gifsArray.data[i].title ? gifsArray.data[i].title : 'No Title'
+            gifName: gifsArray.data[i].title ? gifsArray.data[i].title : 'No Title',
         };
         imagen.info = Gif;
+
+        fetchBlob(imagen);
+        
+
 
         imagen.src = Gif.source;
         imagen.classList.add("carousel-item__img");
         carouselItem.append(imagen);
+
+        hoverItems(carouselItem, imagen.info.gifUserName, imagen.info.gifName);
+
         trendingGifsContainer.append(carouselItem);
+
+        
     }
 })();
 
