@@ -774,7 +774,8 @@ footer__icon {
   }
 }
 
-.favorites__gifos {
+.favorites, .mis-gifos {
+  display: none;
   margin-top: 28px;
   margin-bottom: 78px;
 }

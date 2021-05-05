@@ -19,8 +19,8 @@ function hoverItems(elm,usr,title) {
     const hover = `
                 <div class="carousel-item__icons">
                     <button class="button fav-icon" id="fav-icon" type="submit"></button>
-                    <button class="button expand-icon" id="expand-icon" type="submit"></button>
                     <button class="button download-icon" id="button-download" type="submit"></button>
+                    <button class="button expand-icon" id="expand-icon" type="submit"></button>
                 </div>
                 <div class="carousel-item__text">
                     <p class="carousel-item__text--user" id='item-user'>${usr}</p>

@@ -17,11 +17,11 @@
         <div>
             <input class="checkbox" id="checkbox" type="checkbox" name="checkbox" value="text">
             <label for="checkbox"></label>
-            <nav class="nav">
+            <nav class="nav" id="nav">
                 <ul>
                     <li><a href="#">Modo nocturno</a></li>
-                    <li><a href="#">Favoritos</a></li>
-                    <li><a href="#">Mis GIFOS</a></li>
+                    <li><a id="nav-favorites" href="#">Favoritos</a></li>
+                    <li><a id="nav-gifos" href="#">Mis GIFOS</a></li>
                     <li><a href="#">Más</a></li>
                 </ul>
             </nav>
@@ -44,6 +44,26 @@
         <h3 class="main__h3 h3">Trending:</h3>
         <div id="trends-container" class="main__p p--xsmall"></div>
     </main>
+
+    <section class="favorites" id="myfavorites">
+        <div class="favorites__icon"><img src="./img/icon-favoritos.svg" alt=""></div>
+        <h2 class="h2">Favoritos</h2>
+        
+        <div class="favorites__no-results">
+            <div class="no-results__favorites"></div>
+            <p class="no-results__text">"¡Guarda tu primer  GIFO en favoritos <span class="no-results__text--span"></span> para que se muestre aquí!"</p>
+        </div>
+    </section>
+
+    <section class="mis-gifos" id="mygifos">
+        <div class="favorites__icon"><img src="./img/icon-mis-gifos.svg" alt=""></div>
+        <h2 class="h2">Mis gifos</h2>
+
+        <div class="gifos__no-results">
+            <div class="no-results__gifos"></div>
+            <p class="no-results__text">¡Anímate a crear tu primer GIFO!</p>
+        </div>
+    </section>
 
     <section class="search-results">
         <span class="divisory-line"></span>
@@ -96,5 +116,6 @@
     <script src="./scripts/fetch.js"></script>
     <script src="./scripts/gallery.js"></script>
     <script src="./scripts/maxgif.js"></script>
+    <script src="./scripts/nav-bar.js"></script>
 </body>
 </html>

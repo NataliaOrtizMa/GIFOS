@@ -1,7 +1,5 @@
-.favorites {
-    &__gifos {
-        margin-top: 28px;
-        margin-bottom: 78px;
-        // @extend %gifos-grid;
-    }
+.favorites , .mis-gifos{
+    display: none;
+    margin-top: 28px;
+    margin-bottom: 78px;
 }
