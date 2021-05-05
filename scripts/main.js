@@ -6,16 +6,10 @@ async function fetchBlob(img) {
     const imageFetch = await fetch(img.info.downloadUrl);
     let File = await imageFetch.blob();
     const urlBlob = URL.createObjectURL(File);
-    localStorage.setItem(img.info.gifName, urlBlob);
-    // anchor.download = "myImage";
-    // anchor.href = urlBlob;
-}
-
-function downloadImage(url,anchor) {
-    // const urlBlob = URL.createObjectURL(url);
-    // console.log(urlBlob);
+    const anchor = document.createElement("a");
     anchor.download = "myImage";
-    anchor.href = url;
+    anchor.href = urlBlob;
+    anchor.click();
 }
 
 function hoverItems(elm,usr,title) {
@@ -26,7 +20,7 @@ function hoverItems(elm,usr,title) {
                 <div class="carousel-item__icons">
                     <button class="button fav-icon" id="fav-icon" type="submit"></button>
                     <button class="button expand-icon" id="expand-icon" type="submit"></button>
-                    <button class="button download-icon" id="download-icon" type="submit"></button>
+                    <button class="button download-icon" id="button-download" type="submit"></button>
                 </div>
                 <div class="carousel-item__text">
                     <p class="carousel-item__text--user" id='item-user'>${usr}</p>

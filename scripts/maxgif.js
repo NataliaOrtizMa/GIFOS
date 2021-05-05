@@ -4,14 +4,13 @@ const searchGifsContainer = document.getElementById("search-container");
 const closeGifBtn = document.getElementById("button-close");
 const expandGifBtn = document.getElementById("expand-icon");
 const downloadGifBtn = document.getElementById("button-download");
-const downloadGifLink = document.getElementById("download-link");
+// const downloadGifLink = document.getElementById("download-link");
 // const maxGifContainer = document.getElementById("max-gif");
 
 const gifUser = document.getElementById("gif-user");
 const gifTitle = document.getElementById("gif-title");
 
 function clickGifo(ev) {
-    // const imgGif;
     if (ev.target.id === 'expand-icon') {
         imgGif = ev.target.parentNode.parentNode.previousElementSibling.parentNode;
         imgGif.click();
@@ -24,7 +23,6 @@ function clickGifo(ev) {
         imgGif = ev.target.parentNode.parentNode;
         imgGif.click();
     }
-    
 }
 
 function addGifInfo(ev) {
@@ -45,18 +43,27 @@ function addGifInfo(ev) {
 }
 
 maxGifContainer.addEventListener("click", async function (ev) {
-    
     if (ev.target.id === 'button-download') {
-        console.log(ev.target);
         const maxGif = document.querySelector(".figure__img")
-        const imageFetch = await fetch(maxGif.info.downloadUrl);
-        let File = await imageFetch.blob();
-        const urlBlob = URL.createObjectURL(File);
-        // localStorage.setItem(img.info.gifName, urlBlob);
-        const anchor = document.createElement("a");
-        anchor.download = "myImage";
-        anchor.href = urlBlob;
-        anchor.click();
+        fetchBlob(maxGif);
+    }
+})
+
+trendingGifsContainer.addEventListener("mouseover", async function (ev) {
+    if (ev.target.id === 'button-download') {
+        ev.target.addEventListener("click", async function (ev) {
+            imgGif = ev.target.parentNode.parentNode.previousElementSibling.parentNode;
+            fetchBlob(imgGif);
+        }) 
+    }
+})
+
+searchGifsContainer.addEventListener("mouseover", async function (ev) {
+    if (ev.target.id === 'button-download') {
+        ev.target.addEventListener("click", async function (ev) {
+            imgGif = ev.target.parentNode.parentNode.previousElementSibling.parentNode;
+            fetchBlob(imgGif);
+        }) 
     }
 })
 

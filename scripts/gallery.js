@@ -46,8 +46,6 @@ async function gifosGallery(searchResults) {
         const imagen = document.createElement('img');
         imagen.classList.add("carousel-item__img");
         imagen.style.display = 'inline';
-        
-        
 
         let Gif = {
             source: searchResults.data[i].images.fixed_width_still.url,
@@ -58,21 +56,11 @@ async function gifosGallery(searchResults) {
         };
         imagen.info = Gif;
         galleryItem.info = Gif;
-
-
         imagen.src = Gif.source;
 
         galleryItem.append(imagen);
         hoverItems(galleryItem,imagen.info.gifUserName, imagen.info.gifName);
         searchdiv.append(galleryItem);
-        // searchdiv.append(imagen);
-
-        // fetchBlob(imagen);  
-        // const imageFetch = await fetch(imagen.info.downloadUrl);
-        // let File = await imageFetch.blob();
-        // const urlBlob = URL.createObjectURL(File);
-        // imagen.file = File;
-        // imagen.blob = urlBlob;
     }
 }
 
