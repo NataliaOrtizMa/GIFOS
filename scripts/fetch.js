@@ -55,8 +55,10 @@ async function trendingGifs(){
     for(var i=0; i<3; i++) {
         const carouselItem = document.createElement('div');
         carouselItem.classList.add("carousel-item");
+        carouselItem.id = "carousel-item";
         const imagen = document.createElement('img');
-        
+        imagen.classList.add("carousel-item__img");
+        imagen.id = ("carousel-item__img");
         let Gif = {
             source: gifsArray.data[i].images.fixed_width_still.url,
             sourceQuality: gifsArray.data[i].images.fixed_width.webp,
@@ -65,20 +67,12 @@ async function trendingGifs(){
             gifName: gifsArray.data[i].title ? gifsArray.data[i].title : 'No Title',
         };
         imagen.info = Gif;
-
-        fetchBlob(imagen);
-        
-
-
         imagen.src = Gif.source;
-        imagen.classList.add("carousel-item__img");
+        carouselItem.info = Gif;
         carouselItem.append(imagen);
-
-        hoverItems(carouselItem, imagen.info.gifUserName, imagen.info.gifName);
-
         trendingGifsContainer.append(carouselItem);
 
-        
+        hoverItems(carouselItem, imagen.info.gifUserName, imagen.info.gifName);
     }
 })();
 

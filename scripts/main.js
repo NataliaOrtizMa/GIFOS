@@ -6,30 +6,35 @@ async function fetchBlob(img) {
     const imageFetch = await fetch(img.info.downloadUrl);
     let File = await imageFetch.blob();
     const urlBlob = URL.createObjectURL(File);
-    img.file = File;
-    img.blob = urlBlob;
+    localStorage.setItem(img.info.gifName, urlBlob);
+    // anchor.download = "myImage";
+    // anchor.href = urlBlob;
 }
 
 function downloadImage(url,anchor) {
     // const urlBlob = URL.createObjectURL(url);
     // console.log(urlBlob);
     anchor.download = "myImage";
-    anchor.href = urlBlob;
+    anchor.href = url;
 }
 
 function hoverItems(elm,usr,title) {
+    const itemDetails = document.createElement("div");
+    itemDetails.classList.add("carousel-item__details");
+    itemDetails.id = "carousel-item__details";
     const hover = `
-            <div class="carousel-item__details">
                 <div class="carousel-item__icons">
-                    <button class="button fav-icon" type="submit"></button>
+                    <button class="button fav-icon" id="fav-icon" type="submit"></button>
                     <button class="button expand-icon" id="expand-icon" type="submit"></button>
-                    <button class="button download-icon" type="submit"></button>
+                    <button class="button download-icon" id="download-icon" type="submit"></button>
                 </div>
                 <div class="carousel-item__text">
-                    <p class="carousel-item__text--user">${usr}</p>
-                    <p class="carousel-item__text--title">${title}</p>
+                    <p class="carousel-item__text--user" id='item-user'>${usr}</p>
+                    <p class="carousel-item__text--title" id='item-title'>${title}</p>
                 </div>
-            </div>
         `
-    elm.innerHTML += hover;
+    itemDetails.innerHTML = hover;
+    elm.appendChild(itemDetails);
 }
+// <!-- </a> -->
+// <!-- <a class="download-link"> -->

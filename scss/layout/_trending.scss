@@ -25,6 +25,7 @@
         overflow-x: scroll;
         overflow-y: hidden;
         display: flex;
+        
         @include respond-to($breakpoint-desktop){
             justify-content: center;
         }
@@ -107,6 +108,7 @@
         position: absolute;
         width: 90%;
         top: 65%;
+        // top: 75%;
         left: 13px;
         font-family: $secondary-font;
         &--user {

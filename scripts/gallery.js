@@ -42,6 +42,7 @@ async function gifosGallery(searchResults) {
     for(var i=0; i<12; i++) {
         const galleryItem = document.createElement('div');
         galleryItem.classList.add("carousel-item");
+        galleryItem.id = "carousel-item";
         const imagen = document.createElement('img');
         imagen.classList.add("carousel-item__img");
         imagen.style.display = 'inline';
@@ -56,6 +57,9 @@ async function gifosGallery(searchResults) {
             gifName: searchResults.data[i].title ? searchResults.data[i].title : 'No Title'
         };
         imagen.info = Gif;
+        galleryItem.info = Gif;
+
+
         imagen.src = Gif.source;
 
         galleryItem.append(imagen);
