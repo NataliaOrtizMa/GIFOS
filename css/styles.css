@@ -299,6 +299,8 @@ footer__icon {
   }
 }
 .header__logo {
+  content: url("../img/logo.svg");
+  cursor: pointer;
   width: 50px;
 }
 @media only screen and (min-width: 1024px) {
@@ -608,7 +610,7 @@ footer__icon {
 }
 
 .carousel-item {
-  width: 65%;
+  width: 45%;
   min-width: 243px;
   height: 187px;
 }

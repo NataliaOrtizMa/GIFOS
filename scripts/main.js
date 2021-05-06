@@ -7,7 +7,7 @@ async function fetchBlob(img) {
     let File = await imageFetch.blob();
     const urlBlob = URL.createObjectURL(File);
     const anchor = document.createElement("a");
-    anchor.download = "myImage";
+    anchor.download = img.info.gifName;
     anchor.href = urlBlob;
     anchor.click();
 }
