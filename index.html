@@ -45,13 +45,18 @@
         <div id="trends-container" class="main__p p--xsmall"></div>
     </main>
 
-    <section class="favorites" id="myfavorites">
+    <section class="favorites" id="favorites">
         <div class="favorites__icon"><img src="./img/icon-favoritos.svg" alt=""></div>
         <h2 class="h2">Favoritos</h2>
         
-        <div class="favorites__no-results">
+        <div class="favorites__no-results" id="favorites__no-results">
             <div class="no-results__favorites"></div>
             <p class="no-results__text">"¡Guarda tu primer  GIFO en favoritos <span class="no-results__text--span"></span> para que se muestre aquí!"</p>
+        </div>
+
+        <div class="favorites__results" id="favorites__results">
+            <div class="gallery" id="favs-container"></div>
+            <button class="watch-more-button" type="submit"></button>
         </div>
     </section>
 

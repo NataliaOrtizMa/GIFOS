@@ -2,6 +2,8 @@ function capitalize(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
+// localStorage.clear();
+
 async function fetchBlob(img) {
     const imageFetch = await fetch(img.info.downloadUrl);
     let File = await imageFetch.blob();

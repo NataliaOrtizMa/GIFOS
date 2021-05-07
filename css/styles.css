@@ -254,6 +254,10 @@ footer__icon {
   background-image: url("../img/icon-download-hover.svg");
 }
 
+.fav-icon__active {
+  background-image: url("../img/icon-fav-active.svg");
+}
+
 .divisory-line::after {
   content: " ";
   display: block;

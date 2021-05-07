@@ -51,7 +51,7 @@ async function trendingGifs(){
 (async function () {
     const gifsArray = await trendingGifs();
     const trendingGifsContainer = document.getElementById("images-container");
-    // console.log(gifsArray);
+    
     for(var i=0; i<3; i++) {
         const carouselItem = document.createElement('div');
         carouselItem.classList.add("carousel-item");
@@ -65,10 +65,16 @@ async function trendingGifs(){
             downloadUrl: gifsArray.data[i].images.original.url,
             gifUserName: gifsArray.data[i].username ? gifsArray.data[i].username : 'No Username',
             gifName: gifsArray.data[i].title ? gifsArray.data[i].title : 'No Title',
+            gifId: gifsArray.data[i].id,
+            isFav: 0,
+            
         };
         imagen.info = Gif;
         imagen.src = Gif.source;
+        
         carouselItem.info = Gif;
+        carouselItem.identifier = Gif.gifId;
+        // carouselItem.isFav = 0;
         carouselItem.append(imagen);
         trendingGifsContainer.append(carouselItem);
 

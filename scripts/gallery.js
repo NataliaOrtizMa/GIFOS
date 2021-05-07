@@ -38,6 +38,7 @@ async function displayGifos(texto, count) {
     }
 }
 
+
 async function gifosGallery(searchResults) {
     for(var i=0; i<12; i++) {
         const galleryItem = document.createElement('div');
@@ -52,12 +53,15 @@ async function gifosGallery(searchResults) {
             sourceQuality: searchResults.data[i].images.fixed_width.webp,
             downloadUrl: searchResults.data[i].images.original.url,
             gifUserName: searchResults.data[i].username ? searchResults.data[i].username : 'No Username',
-            gifName: searchResults.data[i].title ? searchResults.data[i].title : 'No Title'
+            gifName: searchResults.data[i].title ? searchResults.data[i].title : 'No Title',
+            gifId: searchResults.data[i].id,
         };
         imagen.info = Gif;
-        galleryItem.info = Gif;
         imagen.src = Gif.source;
 
+        galleryItem.info = Gif;
+        galleryItem.identifier = Gif.gifId;
+        galleryItem.isFav = 0;
         galleryItem.append(imagen);
         hoverItems(galleryItem,imagen.info.gifUserName, imagen.info.gifName);
         searchdiv.append(galleryItem);
