@@ -50,12 +50,12 @@ function addGifFav(ev) {
         const gifInfo = JSON.stringify(imgGif.info);
         if (imgGif.info.isFav == 0) {
             localStorage.setItem(imgGif.identifier, gifInfo);
-            ev.target.style.backgroundImage = "url('../img/icon-fav-active.svg')";
+            ev.target.style.backgroundImage = "url('./img/icon-fav-active.svg')";
             console.log(localStorage);
             imgGif.info.isFav = 1;
         } else {
             localStorage.removeItem(imgGif.identifier);
-            ev.target.style.backgroundImage = "url('../img/icon-fav-hover.svg')";
+            ev.target.style.backgroundImage = "url('./img/icon-fav-hover.svg')";
             console.log(localStorage);
             imgGif.info.isFav = 0;
         }
