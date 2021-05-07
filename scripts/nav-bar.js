@@ -37,7 +37,7 @@ navFavorites.addEventListener("click", function (ev) {
             var KeyName = window.localStorage.key(i);
             const gifInfo = localStorage.getItem(KeyName);
             const Gif = JSON.parse(gifInfo);
-            console.log(Gif)
+            // console.log(Gif)
             
             const galleryItem = document.createElement('div');
             galleryItem.classList.add("carousel-item");
