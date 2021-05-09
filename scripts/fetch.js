@@ -66,7 +66,7 @@ async function trendingGifs(){
             gifUserName: gifsArray.data[i].username ? gifsArray.data[i].username : 'No Username',
             gifName: gifsArray.data[i].title ? gifsArray.data[i].title : 'No Title',
             gifId: gifsArray.data[i].id,
-            isFav: 0,
+            // isFav: 0,
             
         };
         imagen.info = Gif;

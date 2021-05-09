@@ -1,3 +1,15 @@
+console.log(localStorage)
+
+// myStorage = window.localStorage;
+// window.addEventListener("localStorage", function() {
+//     console.log('change');
+//     navFavorites.click();
+    // removeAllChildNodes(favsContainer);
+// })
+// window.addEventListener('storage',function(){
+//     alert('session storage variable value changed');
+// });
+
 function capitalize(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
 }

@@ -28,6 +28,7 @@ function clickGifo(ev) {
 function addGifInfo(ev) {
     if (ev.target.id === 'carousel-item') {  
         const maxGif = document.querySelector(".figure__img");
+        // console.log(maxGif)
         link = ev.target.info.sourceQuality;
         maxGifContainer.style.display = 'block';
         maxGif.src = link;
@@ -39,25 +40,40 @@ function addGifInfo(ev) {
         removeAllChildNodes(gifTitle);
         gifUser.appendChild(document.createTextNode(ev.target.info.gifUserName));
         gifTitle.appendChild(document.createTextNode(ev.target.info.gifName));
+
+        // if (ev.target.id === 'fav-icon') {
+            // console.log(ev.target.id)
+            // gifo = ev.target.parentNode.parentNode.previousElementSibling.parentNode;
+    
+            // favIcon = ev.target;
+            const favIcon = maxGif.nextElementSibling.firstElementChild.nextElementSibling;
+            // console.log(favIcon)
+            // const gifo = document.querySelector(".figure__img")
+            const isFav = localStorage.getItem(maxGif.info.gifId);
+            const gifInfo = JSON.stringify(maxGif.info);
+            if (isFav == null) {
+                // localStorage.setItem(maxGif.identifier, gifInfo);
+                favIcon.style.backgroundImage = "url('./img/icon-fav.svg')";
+            } else {
+                // localStorage.removeItem(maxGif.identifier);
+                favIcon.style.backgroundImage = "url('./img/icon-fav-active.svg')";
+            }
+        // }
     }
 }
 
 function addGifFav(ev) {
     if (ev.target.id === 'fav-icon') {
-        imgGif = ev.target.parentNode.parentNode.previousElementSibling.parentNode;
-        console.log(imgGif.info.source)
-        // value = imgGif.info;
-        const gifInfo = JSON.stringify(imgGif.info);
-        if (imgGif.info.isFav == 0) {
-            localStorage.setItem(imgGif.identifier, gifInfo);
-            ev.target.style.backgroundImage = "url('./img/icon-fav-active.svg')";
-            console.log(localStorage);
-            imgGif.info.isFav = 1;
+        favIcon = ev.target;
+        gifo = ev.target.parentNode.parentNode.previousElementSibling.parentNode;
+        isFav = localStorage.getItem(gifo.info.gifId);
+        const gifInfo = JSON.stringify(gifo.info);
+        if (isFav == null) {
+            localStorage.setItem(gifo.identifier, gifInfo);
+            favIcon.style.backgroundImage = "url('./img/icon-fav-active.svg')";
         } else {
-            localStorage.removeItem(imgGif.identifier);
-            ev.target.style.backgroundImage = "url('./img/icon-fav-hover.svg')";
-            console.log(localStorage);
-            imgGif.info.isFav = 0;
+            localStorage.removeItem(gifo.identifier);
+            favIcon.style.backgroundImage = "url('./img/icon-fav-hover.svg')";
         }
     }
 }
@@ -67,6 +83,25 @@ maxGifContainer.addEventListener("click", async function (ev) {
         const maxGif = document.querySelector(".figure__img")
         fetchBlob(maxGif);
     }
+    // AQUIIIIIIIIIIIIIIIII
+    if (ev.target.id === 'fav-icon') {
+        favIcon = ev.target;
+        // gifo = ev.target.parentNode.previousElementSibling;
+        const gifo = document.querySelector(".figure__img")
+        console.log(gifo)
+        // gifo = ev.target.parentNode.parentNode.previousElementSibling.parentNode;
+        isFav = localStorage.getItem(gifo.info.gifId);
+        const gifInfo = JSON.stringify(gifo.info);
+        if (isFav == null) {
+            localStorage.setItem(gifo.info.gifId, gifInfo);
+            favIcon.style.backgroundImage = "url('./img/icon-fav-active.svg')";
+        } else {
+            localStorage.removeItem(gifo.info.gifId);
+            favIcon.style.backgroundImage = "url('./img/icon-fav-hover.svg')";
+        }
+        console.log(localStorage)
+    }
+    
 })
 
 trendingGifsContainer.addEventListener("mouseover", async function (ev) {
@@ -76,6 +111,20 @@ trendingGifsContainer.addEventListener("mouseover", async function (ev) {
             fetchBlob(imgGif);
         }) 
     }
+    if (ev.target.id === 'carousel-item__details') {
+        const favIcon = ev.target.firstElementChild.firstElementChild;
+        gifo = ev.target.previousElementSibling.parentNode;
+        isFav = localStorage.getItem(gifo.info.gifId);
+        if (isFav == null){
+            // localStorage.setItem(gifo.identifier, gifInfo);
+            favIcon.style.backgroundImage = "url('./img/icon-fav-hover.svg')";
+            // console.log("No existe en local")
+        }
+        else {
+            // localStorage.removeItem(gifo.identifier);
+            favIcon.style.backgroundImage = "url('./img/icon-fav-active.svg')";
+        }
+    }
 })
 searchGifsContainer.addEventListener("mouseover", async function (ev) {
     if (ev.target.id === 'button-download') {
@@ -84,6 +133,18 @@ searchGifsContainer.addEventListener("mouseover", async function (ev) {
             fetchBlob(imgGif);
         }) 
     }
+    if (ev.target.id === 'carousel-item__details') {
+        favIcon = ev.target.firstElementChild.firstElementChild;
+        gifo = ev.target.previousElementSibling.parentNode;
+        isFav = localStorage.getItem(gifo.info.gifId);
+        if (isFav == null){
+            favIcon.style.backgroundImage = "url('./img/icon-fav-hover.svg')";
+            // console.log("No existe en local")
+        }
+        else {
+            favIcon.style.backgroundImage = "url('./img/icon-fav-active.svg')";
+        }
+    }
 })
 favsContainer.addEventListener("mouseover", async function (ev) {
     if (ev.target.id === 'button-download') {
@@ -91,6 +152,18 @@ favsContainer.addEventListener("mouseover", async function (ev) {
             imgGif = ev.target.parentNode.parentNode.previousElementSibling.parentNode;
             fetchBlob(imgGif);
         }) 
+    }
+    if (ev.target.id === 'carousel-item__details') {
+        favIcon = ev.target.firstElementChild.firstElementChild;
+        gifo = ev.target.previousElementSibling.parentNode;
+        isFav = localStorage.getItem(gifo.info.gifId);
+        if (isFav == null){
+            favIcon.style.backgroundImage = "url('./img/icon-fav-hover.svg')";
+            // console.log("No existe en local")
+        }
+        else {
+            favIcon.style.backgroundImage = "url('./img/icon-fav-active.svg')";
+        }
     }
 })
 

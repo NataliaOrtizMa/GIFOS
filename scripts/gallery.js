@@ -61,7 +61,7 @@ async function gifosGallery(searchResults) {
 
         galleryItem.info = Gif;
         galleryItem.identifier = Gif.gifId;
-        galleryItem.isFav = 0;
+        // galleryItem.isFav = 0;
         galleryItem.append(imagen);
         hoverItems(galleryItem,imagen.info.gifUserName, imagen.info.gifName);
         searchdiv.append(galleryItem);

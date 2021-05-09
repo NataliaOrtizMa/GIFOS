@@ -21,6 +21,8 @@ headerLogo.addEventListener("click", function (ev) {
     navBar.checked = false;
 })
 
+
+
 navFavorites.addEventListener("click", function (ev) {
     favoritesSection.style.display = 'block';
     gifosSection.style.display = 'none';
@@ -30,6 +32,7 @@ navFavorites.addEventListener("click", function (ev) {
         favoritesResults.style.display = 'none';
     } else {
         removeAllChildNodes(favsContainer);
+        console.log('favs')
         favoritesNoResults.style.display = 'none';
         favoritesResults.style.display = 'block';
         for (i=0; i< localStorage.length; i++) {
@@ -53,9 +56,10 @@ navFavorites.addEventListener("click", function (ev) {
     
             galleryItem.info = Gif;
             galleryItem.identifier = Gif.gifId;
-            galleryItem.isFav = 0;
+            // galleryItem.isFav = 1;
             galleryItem.append(imagen);
             hoverItems(galleryItem,imagen.info.gifUserName, imagen.info.gifName);
+            
             favsContainer.append(galleryItem);
         }
     }
