@@ -56,7 +56,8 @@
     &__input {
         outline: none;
         border: none;
-        margin-left: 15px;
+        // margin-left: 15px;
+        
         flex-grow: 2;
         font-family: $secondary-font;
         font-size: map-get($fs,normal);
