@@ -83,7 +83,7 @@ function addGifFav(ev) {
             }
         } else {
             localStorage.removeItem(gifo.info.gifId);
-            favIcon.style.backgroundImage = "url('./img/icon-fav-hover.svg')";
+            favIcon.style.backgroundImage = "url('./img/icon-fav.svg')";
             if (favoritesSection.style.display == 'block') {
                 favsContainer.removeChild(gifo);
                 if(localStorage.length == 0) {
@@ -111,7 +111,7 @@ maxGifContainer.addEventListener("click", async function (ev) {
         } 
         else {
             localStorage.removeItem(gifo.info.gifId);
-            favIcon.style.backgroundImage = "url('./img/icon-fav-hover.svg')";
+            favIcon.style.backgroundImage = "url('./img/icon-fav.svg')";
         }
         console.log(localStorage)
     }
@@ -124,12 +124,20 @@ trendingGifsContainer.addEventListener("mouseover", async function (ev) {
             fetchBlob(imgGif);
         }) 
     }
+    if (ev.target.id === 'fav-icon') {
+        if (isFav == null){
+            ev.target.style.backgroundImage = "url('./img/icon-fav-hover.svg')";
+        }
+        else {
+            favIcon.style.backgroundImage = "url('./img/icon-fav-active.svg')";
+        }
+    }
     if (ev.target.id === 'carousel-item__details') {
         const favIcon = ev.target.firstElementChild.firstElementChild;
         gifo = ev.target.previousElementSibling.parentNode;
         isFav = localStorage.getItem(gifo.info.gifId);
         if (isFav == null){
-            favIcon.style.backgroundImage = "url('./img/icon-fav-hover.svg')";
+            favIcon.style.backgroundImage = "url('./img/icon-fav.svg')";
         }
         else {
             favIcon.style.backgroundImage = "url('./img/icon-fav-active.svg')";
@@ -143,12 +151,20 @@ searchGifsContainer.addEventListener("mouseover", async function (ev) {
             fetchBlob(imgGif);
         }) 
     }
+    if (ev.target.id === 'fav-icon') {
+        if (isFav == null){
+            ev.target.style.backgroundImage = "url('./img/icon-fav-hover.svg')";
+        }
+        else {
+            favIcon.style.backgroundImage = "url('./img/icon-fav-active.svg')";
+        }
+    }
     if (ev.target.id === 'carousel-item__details') {
         favIcon = ev.target.firstElementChild.firstElementChild;
         gifo = ev.target.previousElementSibling.parentNode;
         isFav = localStorage.getItem(gifo.info.gifId);
         if (isFav == null){
-            favIcon.style.backgroundImage = "url('./img/icon-fav-hover.svg')";
+            favIcon.style.backgroundImage = "url('./img/icon-fav.svg')";
         }
         else {
             favIcon.style.backgroundImage = "url('./img/icon-fav-active.svg')";
@@ -162,12 +178,20 @@ favsContainer.addEventListener("mouseover", async function (ev) {
             fetchBlob(imgGif);
         }) 
     }
+    if (ev.target.id === 'fav-icon') {
+        if (isFav == null){
+            ev.target.style.backgroundImage = "url('./img/icon-fav-hover.svg')";
+        }
+        else {
+            favIcon.style.backgroundImage = "url('./img/icon-fav-active.svg')";
+        }
+    }
     if (ev.target.id === 'carousel-item__details') {
         favIcon = ev.target.firstElementChild.firstElementChild;
         gifo = ev.target.previousElementSibling.parentNode;
         isFav = localStorage.getItem(gifo.info.gifId);
         if (isFav == null){
-            favIcon.style.backgroundImage = "url('./img/icon-fav-hover.svg')";
+            favIcon.style.backgroundImage = "url('./img/icon-fav.svg')";
         }
         else {
             favIcon.style.backgroundImage = "url('./img/icon-fav-active.svg')";
