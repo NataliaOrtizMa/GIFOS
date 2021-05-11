@@ -45,6 +45,7 @@ navFavorites.addEventListener("click", function (ev) {
             const imagen = document.createElement('img');
             imagen.classList.add("carousel-item__img");
             imagen.style.display = 'inline';
+            imagen.id = ("carousel-item__img");
 
             imagen.info = Gif;
             imagen.src = Gif.source;
@@ -52,8 +53,12 @@ navFavorites.addEventListener("click", function (ev) {
             galleryItem.info = Gif;
             galleryItem.gifId = Gif.gifId;
             galleryItem.append(imagen);
-            hoverItems(galleryItem,imagen.info.gifUserName, imagen.info.gifName);
-            
+
+            if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+            } 
+            else{
+                hoverItems(galleryItem,imagen.info.gifUserName, imagen.info.gifName);
+            }
             favsContainer.append(galleryItem);
         }
     }

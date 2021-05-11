@@ -10,22 +10,32 @@ const gifUser = document.getElementById("gif-user");
 const gifTitle = document.getElementById("gif-title");
 
 function clickGifo(ev) {
-    if (ev.target.id === 'expand-icon') {
-        imgGif = ev.target.parentNode.parentNode.previousElementSibling.parentNode;
-        imgGif.click();
+    
+    if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+        if (ev.target.id == 'carousel-item__img') {
+            imgGif = ev.target.parentNode;
+            imgGif.click();
+        }
     }
-    if (ev.target.id === 'carousel-item__details') {
-        imgGif = ev.target.previousElementSibling.parentNode;
-        imgGif.click();
-    }
-    if (ev.target.id === 'item-user' || ev.target.id === 'item-title') {
-        imgGif = ev.target.parentNode.parentNode;
-        imgGif.click();
+    else{
+        if (ev.target.id === 'expand-icon') {
+            imgGif = ev.target.parentNode.parentNode.previousElementSibling.parentNode;
+            imgGif.click();
+        }
+        if (ev.target.id === 'carousel-item__details') {
+            imgGif = ev.target.previousElementSibling.parentNode;
+            imgGif.click();
+        }
+        if (ev.target.id === 'item-user' || ev.target.id === 'item-title') {
+            imgGif = ev.target.parentNode.parentNode;
+            imgGif.click();
+        }
     }
 }
 
 function addGifInfo(ev) {
     if (ev.target.id === 'carousel-item') {  
+        console.log("Si sirve")
         const maxGif = document.querySelector(".figure__img");
 
         link = ev.target.info.sourceQuality;
@@ -45,7 +55,8 @@ function addGifInfo(ev) {
         const gifInfo = JSON.stringify(maxGif.info);
         if (isFav == null) {
             favIcon.style.backgroundImage = "url('./img/icon-fav.svg')";
-        } else {
+        } 
+        else {
             favIcon.style.backgroundImage = "url('./img/icon-fav-active.svg')";
         }
     }
@@ -97,7 +108,8 @@ maxGifContainer.addEventListener("click", async function (ev) {
         if (isFav == null) {
             localStorage.setItem(gifo.info.gifId, gifInfo);
             favIcon.style.backgroundImage = "url('./img/icon-fav-active.svg')";
-        } else {
+        } 
+        else {
             localStorage.removeItem(gifo.info.gifId);
             favIcon.style.backgroundImage = "url('./img/icon-fav-hover.svg')";
         }
@@ -189,5 +201,7 @@ favsContainer.addEventListener("click", function (ev) {
 closeGifBtn.addEventListener("click", function(ev) {
     maxGifContainer.style.display = 'none';
     document.querySelector("body").style.overflow = "auto";
-    navFavorites.click();
+    if (favoritesSection.style.display == 'block') {
+        navFavorites.click();
+    }
 })

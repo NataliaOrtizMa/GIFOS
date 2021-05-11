@@ -76,7 +76,11 @@ async function trendingGifs(){
         carouselItem.append(imagen);
         trendingGifsContainer.append(carouselItem);
 
-        hoverItems(carouselItem, imagen.info.gifUserName, imagen.info.gifName);
+        if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+        }
+        else{
+            hoverItems(carouselItem,imagen.info.gifUserName, imagen.info.gifName);
+        }
     }
 })();
 
