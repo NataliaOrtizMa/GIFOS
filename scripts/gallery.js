@@ -38,7 +38,6 @@ async function displayGifos(texto, count) {
     }
 }
 
-
 async function gifosGallery(searchResults) {
     for(var i=0; i<12; i++) {
         const galleryItem = document.createElement('div');
@@ -60,8 +59,8 @@ async function gifosGallery(searchResults) {
         imagen.src = Gif.source;
 
         galleryItem.info = Gif;
-        galleryItem.identifier = Gif.gifId;
-        // galleryItem.isFav = 0;
+        galleryItem.gifId = Gif.gifId;
+        
         galleryItem.append(imagen);
         hoverItems(galleryItem,imagen.info.gifUserName, imagen.info.gifName);
         searchdiv.append(galleryItem);

@@ -66,15 +66,13 @@ async function trendingGifs(){
             gifUserName: gifsArray.data[i].username ? gifsArray.data[i].username : 'No Username',
             gifName: gifsArray.data[i].title ? gifsArray.data[i].title : 'No Title',
             gifId: gifsArray.data[i].id,
-            // isFav: 0,
-            
         };
         imagen.info = Gif;
         imagen.src = Gif.source;
         
         carouselItem.info = Gif;
-        carouselItem.identifier = Gif.gifId;
-        // carouselItem.isFav = 0;
+        carouselItem.gifId = Gif.gifId;
+        
         carouselItem.append(imagen);
         trendingGifsContainer.append(carouselItem);
 

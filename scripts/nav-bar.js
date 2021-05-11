@@ -8,9 +8,7 @@ const favoritesSection = document.getElementById("favorites");
 const favoritesNoResults = document.getElementById("favorites__no-results");
 const favoritesResults = document.getElementById("favorites__results");
 
-
 const gifosSection = document.getElementById("mygifos");
-// my-gifos
 
 headerLogo.addEventListener("click", function (ev) {
     favoritesSection.style.display = 'none';
@@ -21,9 +19,10 @@ headerLogo.addEventListener("click", function (ev) {
     navBar.checked = false;
 })
 
-
-
 navFavorites.addEventListener("click", function (ev) {
+    input.value = '';
+    searchButton.style.backgroundImage = "url('./img/icon-search.svg')";
+
     favoritesSection.style.display = 'block';
     gifosSection.style.display = 'none';
     predefView();
@@ -32,7 +31,6 @@ navFavorites.addEventListener("click", function (ev) {
         favoritesResults.style.display = 'none';
     } else {
         removeAllChildNodes(favsContainer);
-        console.log('favs')
         favoritesNoResults.style.display = 'none';
         favoritesResults.style.display = 'block';
         for (i=0; i< localStorage.length; i++) {
@@ -40,7 +38,6 @@ navFavorites.addEventListener("click", function (ev) {
             var KeyName = window.localStorage.key(i);
             const gifInfo = localStorage.getItem(KeyName);
             const Gif = JSON.parse(gifInfo);
-            // console.log(Gif)
             
             const galleryItem = document.createElement('div');
             galleryItem.classList.add("carousel-item");
@@ -51,12 +48,9 @@ navFavorites.addEventListener("click", function (ev) {
 
             imagen.info = Gif;
             imagen.src = Gif.source;
-
-            // Poner color al corazón de los favoritos
     
             galleryItem.info = Gif;
-            galleryItem.identifier = Gif.gifId;
-            // galleryItem.isFav = 1;
+            galleryItem.gifId = Gif.gifId;
             galleryItem.append(imagen);
             hoverItems(galleryItem,imagen.info.gifUserName, imagen.info.gifName);
             

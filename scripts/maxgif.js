@@ -5,7 +5,6 @@ const favsContainer = document.getElementById("favs-container");
 const closeGifBtn = document.getElementById("button-close");
 const expandGifBtn = document.getElementById("expand-icon");
 const downloadGifBtn = document.getElementById("button-download");
-// const favGifBtn = document.getElementById("fav-icon");
 
 const gifUser = document.getElementById("gif-user");
 const gifTitle = document.getElementById("gif-title");
@@ -28,7 +27,7 @@ function clickGifo(ev) {
 function addGifInfo(ev) {
     if (ev.target.id === 'carousel-item') {  
         const maxGif = document.querySelector(".figure__img");
-        // console.log(maxGif)
+
         link = ev.target.info.sourceQuality;
         maxGifContainer.style.display = 'block';
         maxGif.src = link;
@@ -41,24 +40,14 @@ function addGifInfo(ev) {
         gifUser.appendChild(document.createTextNode(ev.target.info.gifUserName));
         gifTitle.appendChild(document.createTextNode(ev.target.info.gifName));
 
-        // if (ev.target.id === 'fav-icon') {
-            // console.log(ev.target.id)
-            // gifo = ev.target.parentNode.parentNode.previousElementSibling.parentNode;
-    
-            // favIcon = ev.target;
-            const favIcon = maxGif.nextElementSibling.firstElementChild.nextElementSibling;
-            // console.log(favIcon)
-            // const gifo = document.querySelector(".figure__img")
-            const isFav = localStorage.getItem(maxGif.info.gifId);
-            const gifInfo = JSON.stringify(maxGif.info);
-            if (isFav == null) {
-                // localStorage.setItem(maxGif.identifier, gifInfo);
-                favIcon.style.backgroundImage = "url('./img/icon-fav.svg')";
-            } else {
-                // localStorage.removeItem(maxGif.identifier);
-                favIcon.style.backgroundImage = "url('./img/icon-fav-active.svg')";
-            }
-        // }
+        const favIcon = maxGif.nextElementSibling.firstElementChild.nextElementSibling;
+        const isFav = localStorage.getItem(maxGif.info.gifId);
+        const gifInfo = JSON.stringify(maxGif.info);
+        if (isFav == null) {
+            favIcon.style.backgroundImage = "url('./img/icon-fav.svg')";
+        } else {
+            favIcon.style.backgroundImage = "url('./img/icon-fav-active.svg')";
+        }
     }
 }
 
@@ -68,12 +57,29 @@ function addGifFav(ev) {
         gifo = ev.target.parentNode.parentNode.previousElementSibling.parentNode;
         isFav = localStorage.getItem(gifo.info.gifId);
         const gifInfo = JSON.stringify(gifo.info);
-        if (isFav == null) {
-            localStorage.setItem(gifo.identifier, gifInfo);
+        
+        if (isFav == null) {  //If the gifo is not in localStorage
+            localStorage.setItem(gifo.info.gifId, gifInfo);
             favIcon.style.backgroundImage = "url('./img/icon-fav-active.svg')";
+            if (favoritesSection.style.display == 'block') {
+                if(localStorage.length == 1) {
+                    favoritesResults.style.display = 'block';
+                    favoritesNoResults.style.display = 'none';
+                }
+                cln = gifo.cloneNode(true);
+                cln.info = gifo.info;
+                favsContainer.appendChild(cln);
+            }
         } else {
-            localStorage.removeItem(gifo.identifier);
+            localStorage.removeItem(gifo.info.gifId);
             favIcon.style.backgroundImage = "url('./img/icon-fav-hover.svg')";
+            if (favoritesSection.style.display == 'block') {
+                favsContainer.removeChild(gifo);
+                if(localStorage.length == 0) {
+                    favoritesNoResults.style.display = 'block';
+                    favoritesResults.style.display = 'none';
+                } 
+            }
         }
     }
 }
@@ -83,13 +89,9 @@ maxGifContainer.addEventListener("click", async function (ev) {
         const maxGif = document.querySelector(".figure__img")
         fetchBlob(maxGif);
     }
-    // AQUIIIIIIIIIIIIIIIII
     if (ev.target.id === 'fav-icon') {
         favIcon = ev.target;
-        // gifo = ev.target.parentNode.previousElementSibling;
-        const gifo = document.querySelector(".figure__img")
-        console.log(gifo)
-        // gifo = ev.target.parentNode.parentNode.previousElementSibling.parentNode;
+        const gifo = document.querySelector(".figure__img");
         isFav = localStorage.getItem(gifo.info.gifId);
         const gifInfo = JSON.stringify(gifo.info);
         if (isFav == null) {
@@ -101,7 +103,6 @@ maxGifContainer.addEventListener("click", async function (ev) {
         }
         console.log(localStorage)
     }
-    
 })
 
 trendingGifsContainer.addEventListener("mouseover", async function (ev) {
@@ -116,12 +117,9 @@ trendingGifsContainer.addEventListener("mouseover", async function (ev) {
         gifo = ev.target.previousElementSibling.parentNode;
         isFav = localStorage.getItem(gifo.info.gifId);
         if (isFav == null){
-            // localStorage.setItem(gifo.identifier, gifInfo);
             favIcon.style.backgroundImage = "url('./img/icon-fav-hover.svg')";
-            // console.log("No existe en local")
         }
         else {
-            // localStorage.removeItem(gifo.identifier);
             favIcon.style.backgroundImage = "url('./img/icon-fav-active.svg')";
         }
     }
@@ -139,7 +137,6 @@ searchGifsContainer.addEventListener("mouseover", async function (ev) {
         isFav = localStorage.getItem(gifo.info.gifId);
         if (isFav == null){
             favIcon.style.backgroundImage = "url('./img/icon-fav-hover.svg')";
-            // console.log("No existe en local")
         }
         else {
             favIcon.style.backgroundImage = "url('./img/icon-fav-active.svg')";
@@ -159,7 +156,6 @@ favsContainer.addEventListener("mouseover", async function (ev) {
         isFav = localStorage.getItem(gifo.info.gifId);
         if (isFav == null){
             favIcon.style.backgroundImage = "url('./img/icon-fav-hover.svg')";
-            // console.log("No existe en local")
         }
         else {
             favIcon.style.backgroundImage = "url('./img/icon-fav-active.svg')";
@@ -190,9 +186,8 @@ favsContainer.addEventListener("click", function (ev) {
     addGifFav(ev);
 })
 
-
-
 closeGifBtn.addEventListener("click", function(ev) {
     maxGifContainer.style.display = 'none';
     document.querySelector("body").style.overflow = "auto";
+    navFavorites.click();
 })
