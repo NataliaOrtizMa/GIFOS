@@ -1,0 +1,77 @@
+.body-night {
+    color: $color-white;
+}
+.header-night {
+    border-top: 5px solid $color-dark-gray;
+    background-color: $color-light-gray;
+    &__logo {
+        content: url("../img/logo-modo-noc.svg");
+    }
+    input {
+        &:checked ~ nav {
+            background-color: $color-black;
+            opacity: 1;
+            & ul li {
+                background-color: $color-black;
+            }
+        }
+        &:not(:checked) ~ label::after {
+            content: url("../img/burger-modo-noct.svg");
+        }
+        &:checked ~ label::after {
+            content: url("../img/close-modo-noct.svg");
+        }
+    }
+}
+.nav-night {
+    & li a {
+        color: $color-white;
+    }
+}
+.main-night {
+    background-color:$color-light-gray;
+    border-bottom: 1px solid $color-light-gray;
+}
+.search-bar-night {
+    border: 1px solid $color-white;
+    background-color: $color-light-gray;
+    &__input {
+        background-color: $color-light-gray;
+        color: white;
+    }
+    &__button {
+        background-image: url("../img/icon-search-mod-noc.svg");
+        &.close-btn {
+            background-image: url("../img/close-modo-noct.svg");
+        }
+    }
+}
+.search-results-night {
+    background-color: $color-light-gray;
+    border-top: 1px solid $color-light-gray;
+    border-bottom: 1px solid $color-dark-gray;
+}
+.watch-more-button-night {
+    background-image: url("../img/CTA-ver+-modo-noc.svg");
+    &:hover {
+        background-image: url("../img/CTA-ver+hover-modo-noc.svg");
+    }
+}
+.favorites-night , .mis-gifos-night {
+    background-color: $color-light-gray;
+    border-bottom: 1px solid #222326;
+}
+.trending-night {
+    background-color: $color-dark-gray;
+    // border-top: 1px solid $color-dark-gray;
+    border-bottom: 1px solid $color-dark-gray;
+    &__p {
+        color: $color-white;
+    }
+}
+.footer-night {
+    border-bottom: 5px solid $color-black;
+    color: $color-white;
+    background-color: $color-light-gray;
+    // border-top: 1px solid #222326;
+}

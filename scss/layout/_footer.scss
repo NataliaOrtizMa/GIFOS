@@ -1,6 +1,7 @@
 .footer {
     border-bottom: 5px solid $color-purple;
     color: $color-black;
+    background-color: $color-white;
     padding: 47px 10% 28px 10%;
     @include flex(column,space-between,center);
     @include respond-to($breakpoint-tablet){

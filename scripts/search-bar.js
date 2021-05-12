@@ -1,11 +1,11 @@
 window.onscroll = function() {stickyFunction()};
 
-var searchbar = document.getElementById("search-bar");
-var headerbar = document.getElementById("header");
-var mainbar = document.getElementById("main");
+const searchbar = document.getElementById("search-bar");
+const headerbar = document.getElementById("header");
+const mainbar = document.getElementById("main");
 
-var stickySearchBar = searchbar.offsetTop;
-var stickyHeaderBar = 10;   
+const stickySearchBar = searchbar.offsetTop;
+const stickyHeaderBar = 10;   
 
 function stickyFunction() {
     if (window.pageYOffset >= stickySearchBar) {

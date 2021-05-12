@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Roboto:wght@400;900&display=swap" rel="stylesheet">
 
 </head>
-<body>
+<body class="body" id="body">
 
     <header class="header" id="header">
         <div class="header__logo" id="header__logo"></div> 
@@ -19,7 +19,7 @@
             <label for="checkbox"></label>
             <nav class="nav" id="nav">
                 <ul>
-                    <li><a href="#">Modo nocturno</a></li>
+                    <li><a id="nav-night">Modo nocturno</a></li>
                     <li><a id="nav-favorites" href="#">Favoritos</a></li>
                     <li><a id="nav-gifos" href="#">Mis GIFOS</a></li>
                     <li><a href="#">Más</a></li>
@@ -36,7 +36,7 @@
                 <div class="search-bar__icon"></div>
                 <!-- <object data="./img/search-big.svg" type="image/svg+xml"></object> -->
                 <input class="search-bar__input" id="search-bar__input" type="text" placeholder="Busca GIFOS y más">
-                <button class="search-bar__button" type="submit"></button>
+                <button class="search-bar__button" id="search-bar__button" type="submit"></button>
             </div>
             <div class="search-bar__results"><span class="search-line"></span></div>
             <ul id="suggestions-list" class="search-bar__suggestions"></ul>
@@ -70,7 +70,7 @@
         </div>
     </section>
 
-    <section class="search-results">
+    <section class="search-results" id="search-results">
         <span class="divisory-line"></span>
         <h1 class="h1" id="search-title"></h1>
         <div class="gallery" id="search-container"></div>
@@ -84,9 +84,9 @@
         <p class="no-results__text">Intenta con otra búsqueda.</p>
     </section>
 
-    <section class="trending">
+    <section class="trending" id="trending">
         <h2 class="h2">Trending GIFOS</h2>
-        <p class="trending__p p--normal">Mira los últimos <span class="trending__p--span"></span> GIFOS de nuestra comunidad.</p>
+        <p class="trending__p p--normal" id="p-night">Mira los últimos <span class="trending__p--span"></span> GIFOS de nuestra comunidad.</p>
         <div class="trending__carousel" id="images-container"></div>
     </section>
 
@@ -105,7 +105,7 @@
         </figure>
     </div>
 
-    <footer class="footer">
+    <footer class="footer" id="footer">
         <p class="footer__p--share p--small">Compartir en:</p>
         <div class="footer__media">
             <a class="facebook-icon" href="https://www.facebook.com" target="_blank"></a>
@@ -116,11 +116,13 @@
     </footer>
 
     <script src="./scripts/main.js"></script>
+    <script src="./scripts/night-mode.js"></script>
     <script src="./scripts/download.js"></script>
     <script src="./scripts/search-bar.js"></script>
     <script src="./scripts/fetch.js"></script>
     <script src="./scripts/gallery.js"></script>
     <script src="./scripts/maxgif.js"></script>
     <script src="./scripts/nav-bar.js"></script>
+    
 </body>
 </html>

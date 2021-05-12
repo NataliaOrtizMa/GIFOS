@@ -35,7 +35,7 @@ function clickGifo(ev) {
 
 function addGifInfo(ev) {
     if (ev.target.id === 'carousel-item') {  
-        console.log("Si sirve")
+        // console.log("Si sirve")
         const maxGif = document.querySelector(".figure__img");
 
         link = ev.target.info.sourceQuality;
@@ -113,7 +113,7 @@ maxGifContainer.addEventListener("click", async function (ev) {
             localStorage.removeItem(gifo.info.gifId);
             favIcon.style.backgroundImage = "url('./img/icon-fav.svg')";
         }
-        console.log(localStorage)
+        // console.log(localStorage)
     }
 })
 

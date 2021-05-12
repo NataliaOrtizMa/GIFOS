@@ -7,11 +7,13 @@
     // width: 100vw;
     &__p {
         margin: 7px 0 32px 0;
+        color: $color-black;
         @include respond-to($breakpoint-tablet){
             margin: 12px 0 53px 0;
         }
         &--normal {
             font-family: $secondary-font;
+            
         }
         &--span::before {
             content: "\A";

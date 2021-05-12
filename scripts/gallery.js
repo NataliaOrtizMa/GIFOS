@@ -6,9 +6,11 @@ const searchTitle = document.getElementById("search-title");
 const suggestionsList = document.querySelector('#suggestions-list');
 const divsuggestionsList = document.querySelector(".search-bar__results");
 const searchdiv = document.getElementById("search-container");
-const button = document.querySelector("#more-results-btn");
+const moreButton = document.querySelector("#more-results-btn");
 const searchButton = document.querySelector(".search-bar__button");
 const searchBarIcon = document.querySelector(".search-bar__icon");
+
+searchButton.style.backgroundImage = "url('./img/icon-search.svg')";
 
 function removeAllChildNodes(parent) {
     while (parent.firstChild) {
@@ -28,7 +30,7 @@ async function displayGifos(texto, count) {
     else {
         removeAllChildNodes(searchTitle);
         removeAllChildNodes(searchdiv);
-        button.style.display = 'inline-block';
+        moreButton.style.display = 'inline-block';
         searchContainer.style.display = 'block';
         
         searchTitle.appendChild(document.createTextNode(capitalize(texto)));
@@ -79,11 +81,35 @@ input.oninput = async function() {
     removeAllChildNodes(suggestionsList);
     suggestionsList.style.display = 'block';
     divsuggestionsList.style.display = 'block';
-    searchButton.style.backgroundImage = "url('./img/close.svg')";
 
-    if (entry.length == 0 || (autoTerms.data.length == 0)) {
+    if (nightMode == 1) {
+        searchButton.style.backgroundImage = "url('./img/close-modo-noct.svg')";
+    } else {
+        searchButton.style.backgroundImage = "url('./img/close.svg')";
+    }
+        
+    if ((autoTerms.data.length == 0)) {
         divsuggestionsList.style.display = 'none';
         searchBarIcon.style.visibility = 'hidden';
+        
+        if (nightMode == 1) {
+            searchButton.style.backgroundImage = "url('./img/close-modo-noct.svg')";
+        } else {
+            searchButton.style.backgroundImage = "url('./img/close.svg')";
+        }
+
+    }
+
+    if (entry.length == 0 ) {
+        divsuggestionsList.style.display = 'none';
+        searchBarIcon.style.visibility = 'hidden';
+        // searchButton.style.backgroundImage = "url('./img/icon-search.svg')";
+        if (nightMode == 1) {
+            searchButton.style.backgroundImage = "url('./img/icon-search-mod-noc.svg')";
+        } else {
+            searchButton.style.backgroundImage = "url('./img/icon-search.svg')";
+        }
+        
     }
     else {
         searchBarIcon.style.visibility = 'visible';
@@ -127,7 +153,12 @@ searchButton.addEventListener("click", async function (ev) {
         suggestionsList.style.display = 'none';
         divsuggestionsList.style.display = 'none';
         searchContainer.style.display = 'none';
-        searchButton.style.backgroundImage = "url('./img/icon-search.svg')";
+        if (nightMode == 1) {
+            searchButton.style.backgroundImage = "url('./img/icon-search-mod-noc.svg')";
+        } else {
+            searchButton.style.backgroundImage = "url('./img/icon-search.svg')";
+        }
+        
         
         searchBarIcon.style.visibility = 'hidden';
         noResultsContainer.style.display = 'none';
@@ -142,11 +173,16 @@ trendContainer.addEventListener("click", async function (ev) {
         count = 0;
         displayGifos(texto, count);
         searchBarIcon.style.visibility = 'hidden';
-        searchButton.style.backgroundImage = "url('./img/close.svg')";
+        // searchButton.style.backgroundImage = "url('./img/close.svg')";
+        if (nightMode == 1) {
+            searchButton.style.backgroundImage = "url('./img/close-modo-noct.svg')";
+        } else {
+            searchButton.style.backgroundImage = "url('./img/close.svg')";
+        }
     }
 })
 
-button.addEventListener("click", async function () {
+moreButton.addEventListener("click", async function () {
     count+=12;
     const searchResults = await search(texto,count);
     gifosGallery(searchResults);
@@ -156,3 +192,7 @@ button.addEventListener("click", async function () {
 // blob
 // Agregar btn ver más cuando no hay más resultados
 // Arreglar cuadricula cuando no hay tantos resultados
+// Quitar bg igame from button hover
+// Sigue dark mode
+// Minimizar funciones de todas partes
+// Quitar fav desde trending

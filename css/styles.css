@@ -18,7 +18,6 @@
 html {
   font-family: "Montserrat", sans-serif;
   font-size: 62.5%;
-  color: #572EE5;
   text-align: center;
 }
 
@@ -56,7 +55,6 @@ html {
 
 .p--normal {
   font-size: 1.6rem;
-  color: #000000;
 }
 @media only screen and (min-width: 1024px) {
   .p--normal {
@@ -263,7 +261,7 @@ footer__icon {
   display: block;
   margin: 0 auto;
   width: 157px;
-  margin-top: 35px;
+  padding-top: 35px;
   margin-bottom: 43px;
   border-bottom: 1px solid #9CAFC38C;
 }
@@ -286,7 +284,6 @@ footer__icon {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  color: #FFFFFF;
   background-color: #FFFFFF;
   position: sticky;
   top: 0;
@@ -391,6 +388,7 @@ footer__icon {
 .footer {
   border-bottom: 5px solid #572EE5;
   color: #000000;
+  background-color: #FFFFFF;
   padding: 47px 10% 28px 10%;
   display: flex;
   flex-direction: column;
@@ -434,12 +432,17 @@ footer__icon {
   }
 }
 
+.body {
+  color: #572EE5;
+}
+
 .main {
-  margin: 7px 0 45px 0;
+  background-color: #FFFFFF;
+  padding: 7px 0 45px 0;
 }
 @media only screen and (min-width: 768px) {
   .main {
-    margin: 76px 0 95px 0;
+    padding: 76px 0 95px 0;
   }
 }
 .main__h1 {
@@ -479,7 +482,7 @@ footer__icon {
   min-height: 50px;
   height: auto;
   border: 1px solid #572EE5;
-  background-color: white;
+  background-color: #FFFFFF;
   border-radius: 27px;
   z-index: 10;
 }
@@ -492,7 +495,7 @@ footer__icon {
 }
 .search-bar__icon {
   margin-left: 20px;
-  width: 20px;
+  width: 40px;
   height: 20px;
   visibility: hidden;
   background-repeat: no-repeat;
@@ -507,13 +510,10 @@ footer__icon {
 .search-bar__button {
   margin-right: 20px;
   margin-left: 15px;
-  width: 20px;
+  width: 40px;
   height: 20px;
   background-image: url("../img/icon-search.svg");
   background-repeat: no-repeat;
-}
-.search-bar__button.close-btn {
-  background-image: url("../img/close.svg");
 }
 .search-bar__suggestions {
   list-style-image: url("../img/search.svg");
@@ -573,6 +573,7 @@ footer__icon {
 }
 .trending__p {
   margin: 7px 0 32px 0;
+  color: #000000;
 }
 @media only screen and (min-width: 768px) {
   .trending__p {
@@ -741,7 +742,8 @@ footer__icon {
 
 .search-results {
   display: none;
-  margin-bottom: 80px;
+  padding-bottom: 80px;
+  background-color: #FFFFFF;
 }
 
 .gallery {
@@ -780,9 +782,10 @@ footer__icon {
 }
 
 .favorites, .mis-gifos {
+  background-color: #FFFFFF;
   display: none;
-  margin-top: 28px;
-  margin-bottom: 78px;
+  padding-top: 28px;
+  padding-bottom: 78px;
 }
 
 .no-results__gifos, .no-results__favorites, .no-results__search {
@@ -852,6 +855,87 @@ footer__icon {
   border-radius: 10px;
   background-color: #572EE5;
   margin: 0 auto;
+}
+
+.body-night {
+  color: #FFFFFF;
+}
+
+.header-night {
+  border-top: 5px solid #222326;
+  background-color: #37383C;
+}
+.header-night__logo {
+  content: url("../img/logo-modo-noc.svg");
+}
+.header-night input:checked ~ nav {
+  background-color: #000000;
+  opacity: 1;
+}
+.header-night input:checked ~ nav ul li {
+  background-color: #000000;
+}
+.header-night input:not(:checked) ~ label::after {
+  content: url("../img/burger-modo-noct.svg");
+}
+.header-night input:checked ~ label::after {
+  content: url("../img/close-modo-noct.svg");
+}
+
+.nav-night li a {
+  color: #FFFFFF;
+}
+
+.main-night {
+  background-color: #37383C;
+  border-bottom: 1px solid #37383C;
+}
+
+.search-bar-night {
+  border: 1px solid #FFFFFF;
+  background-color: #37383C;
+}
+.search-bar-night__input {
+  background-color: #37383C;
+  color: white;
+}
+.search-bar-night__button {
+  background-image: url("../img/icon-search-mod-noc.svg");
+}
+.search-bar-night__button.close-btn {
+  background-image: url("../img/close-modo-noct.svg");
+}
+
+.search-results-night {
+  background-color: #37383C;
+  border-top: 1px solid #37383C;
+  border-bottom: 1px solid #222326;
+}
+
+.watch-more-button-night {
+  background-image: url("../img/CTA-ver+-modo-noc.svg");
+}
+.watch-more-button-night:hover {
+  background-image: url("../img/CTA-ver+hover-modo-noc.svg");
+}
+
+.favorites-night, .mis-gifos-night {
+  background-color: #37383C;
+  border-bottom: 1px solid #222326;
+}
+
+.trending-night {
+  background-color: #222326;
+  border-bottom: 1px solid #222326;
+}
+.trending-night__p {
+  color: #FFFFFF;
+}
+
+.footer-night {
+  border-bottom: 5px solid #000000;
+  color: #FFFFFF;
+  background-color: #37383C;
 }
 
 /*# sourceMappingURL=styles.css.map */
