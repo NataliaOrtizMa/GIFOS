@@ -9,6 +9,9 @@ const searchResults = document.getElementById("search-results");
 const trending = document.getElementById("trending");
 const footer = document.getElementById("footer");   
 const pNight = document.getElementById("p-night");
+const facebookIcon = document.getElementById("facebook-icon");
+const twitterIcon = document.getElementById("twitter-icon");
+const instagramIcon = document.getElementById("instagram-icon");
 
 let nightMode = 0;
 
@@ -54,7 +57,13 @@ navNight.addEventListener("click", function (ev) {
     pNight.classList.toggle("trending-night__p");
     footer.classList.toggle("footer-night");
     moreButton.classList.toggle("watch-more-button-night");
+    facebookIcon.classList.toggle("facebook-icon-night");
+    twitterIcon.classList.toggle("twitter-icon-night");
+    instagramIcon.classList.toggle("instagram-icon-night");
+    // fbIcon
 
     // Areglar media icons hover
     // Arreglar link active quitar underline mint
+    // Arreglar key
+
 })

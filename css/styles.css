@@ -938,4 +938,16 @@ footer__icon {
   background-color: #37383C;
 }
 
+.facebook-icon-night:hover {
+  background-image: url("../img/icon_facebook_noc.svg");
+}
+
+.twitter-icon-night:hover {
+  background-image: url("../img/icon_twitter_noc.svg");
+}
+
+.instagram-icon-night:hover {
+  background-image: url("../img/icon_instagram_noc.svg");
+}
+
 /*# sourceMappingURL=styles.css.map */

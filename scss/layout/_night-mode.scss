@@ -75,3 +75,18 @@
     background-color: $color-light-gray;
     // border-top: 1px solid #222326;
 }
+.facebook-icon-night {
+    &:hover {
+        background-image: url("../img/icon_facebook_noc.svg");     
+    }
+}
+.twitter-icon-night {
+    &:hover {
+        background-image: url("../img/icon_twitter_noc.svg");     
+    }
+}
+.instagram-icon-night {
+    &:hover {
+        background-image: url("../img/icon_instagram_noc.svg");     
+    }
+}
