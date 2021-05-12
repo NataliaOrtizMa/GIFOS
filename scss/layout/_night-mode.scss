@@ -5,7 +5,7 @@
     border-top: 5px solid $color-dark-gray;
     background-color: $color-light-gray;
     &__logo {
-        content: url("../img/Logo-modo-noc.svg");
+        content: url("../img/logo-modo-noc.svg");
     }
     input {
         &:checked ~ nav {

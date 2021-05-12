@@ -1,7 +1,6 @@
 const body = document.getElementById("body");
 const navNight = document.getElementById("nav-night");
 const header = document.getElementById("header");
-const headerLogo = document.getElementById("header__logo");
 const nav = document.getElementById("nav");
 const main = document.getElementById("main");
 const searchBar = document.getElementById("search-bar");
