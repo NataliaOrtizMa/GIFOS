@@ -117,6 +117,7 @@ li {
 }
 .nav li a:active {
   color: #9CAFC3;
+  border-bottom: 2px solid transparent;
 }
 
 .search-bar__button, .start-button, .watch-more-button, .button-close, .button {

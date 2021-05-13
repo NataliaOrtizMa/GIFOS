@@ -60,10 +60,4 @@ navNight.addEventListener("click", function (ev) {
     facebookIcon.classList.toggle("facebook-icon-night");
     twitterIcon.classList.toggle("twitter-icon-night");
     instagramIcon.classList.toggle("instagram-icon-night");
-    // fbIcon
-
-    // Areglar media icons hover
-    // Arreglar link active quitar underline mint
-    // Arreglar key
-
 })
