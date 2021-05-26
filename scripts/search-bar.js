@@ -18,4 +18,7 @@ function stickyFunction() {
     } else {
         headerbar.classList.remove("sticky-header");
     }
+    // if (createGifoSection.style.display == 'block'){
+    //     headerbar.classList.remove("sticky-header");
+    // }
 }

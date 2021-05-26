@@ -2,6 +2,7 @@ const body = document.getElementById("body");
 const navNight = document.getElementById("nav-night");
 const header = document.getElementById("header");
 const nav = document.getElementById("nav");
+// const navMore = document.getElementById("nav-more");
 const main = document.getElementById("main");
 const searchBar = document.getElementById("search-bar");
 const searchBarButton = document.getElementById("search-bar__button");
@@ -42,11 +43,16 @@ navNight.addEventListener("click", function (ev) {
         ev.target.textContent = "Modo nocturno";
         nightMode = 0;
     }
+    navFavorites.addEventListener("click", function (ev) {
+        searchBarButton.classList.add("search-bar-night__button");
+        
+    })
 
     body.classList.toggle("body-night");
     header.classList.toggle("header-night");
     headerLogo.classList.toggle("header-night__logo");
     nav.classList.toggle("nav-night");
+    navMore.classList.toggle("nav-more-night");
     main.classList.toggle("main-night");
     searchBar.classList.toggle("search-bar-night");
     input.classList.toggle("search-bar-night__input");
@@ -61,3 +67,5 @@ navNight.addEventListener("click", function (ev) {
     twitterIcon.classList.toggle("twitter-icon-night");
     instagramIcon.classList.toggle("instagram-icon-night");
 })
+
+// Fix search button noc when clicking favs 

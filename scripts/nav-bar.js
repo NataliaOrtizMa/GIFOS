@@ -1,6 +1,7 @@
 const navBar = document.getElementById("checkbox");
 const navFavorites = document.getElementById("nav-favorites");
 const navGifos = document.getElementById("nav-gifos");
+const navMore = document.getElementById("nav-more");
 const mainSection = document.getElementById("main");
 const headerLogo = document.getElementById("header__logo");
 
@@ -9,6 +10,9 @@ const favoritesNoResults = document.getElementById("favorites__no-results");
 const favoritesResults = document.getElementById("favorites__results");
 
 const gifosSection = document.getElementById("mygifos");
+
+const createGifoSection = document.getElementById("create-gifo");
+const trendingSection = document.getElementById("trending");
 
 headerLogo.addEventListener("click", function (ev) {
     favoritesSection.style.display = 'none';
@@ -25,6 +29,8 @@ navFavorites.addEventListener("click", function (ev) {
 
     favoritesSection.style.display = 'block';
     gifosSection.style.display = 'none';
+    createGifoSection.style.display = 'none';
+    trendingSection.style.display = 'block';
     predefView();
     if (localStorage.length == 0) {
         favoritesNoResults.style.display = 'block';
@@ -67,7 +73,18 @@ navFavorites.addEventListener("click", function (ev) {
 navGifos.addEventListener("click", function (ev) {
     favoritesSection.style.display = 'none';
     gifosSection.style.display = 'block';
+    createGifoSection.style.display = 'none';
+    trendingSection.style.display = 'block';
     predefView();
+})
+
+navMore.addEventListener("click", function (ev) {
+    createGifoSection.style.display = 'block';
+    trendingSection.style.display = 'none';
+    favoritesSection.style.display = 'none';
+    gifosSection.style.display = 'none';
+    predefView();
+    searchbar.classList.remove("sticky-header");
 })
 
 function predefView() {

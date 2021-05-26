@@ -1,18 +1,39 @@
 .create-gifo {
+    display: none;
+    padding-top: 28px;
     &__screen {
-        width: 688px;
+        width: 300px;
         height: 390px;
         border: 1px solid $color-purple;
         margin: 0 auto;
-        padding-top: 134px;
-        padding-bottom: 48px;
+        @include respond-to($breakpoint-tablet){
+            width: 500px;
+        }
+        @include respond-to($breakpoint-desktop){
+            width: 588px;
+        }
+        @include respond-to($breakpoint-big-desktop){
+            width: 688px;
+        }
         
         & p {
             color: $color-black;
-            height: 135px;
             font-family: $secondary-font;
-            font-size: 1.6rem;
+            font-size: map-get($fs,"x-small");
+            width: 200px;
+            margin: 0 auto;
+            line-height: 29px;
+            @include respond-to($breakpoint-tablet){
+                font-size: map-get($fs,"normal");
+                width: auto;
+            }
+            
         }
+    }
+    & h2 {
+        color: $color-purple;
+        margin-top: 40px;
+        line-height: 35px;
     }
     &__p--span::before{
         @include respond-to($breakpoint-tablet){
@@ -22,12 +43,126 @@
     }
     &__steps {
         height: 75px;
+        margin-top: 25px;
+        display: flex;
+        justify-content: center;
+        &--one, &--two, &--three{
+            width: 32px;
+            height: 32px;
+            border-radius: 32px;
+            background-color: $color-white;
+            border: 1px solid $color-purple;
+            color: $color-purple;
+            margin-left: 13px;
+            margin-right: 13px;
+            font-size: 18px;
+            font-family: $secondary-font;
+            line-height: 30px;
+        }
     }
     &__division {
-        width: 796px;
+        width: 75%;
+        max-width: 800px;
         height: 7px;
         border-radius: 10px;
         background-color: $color-purple;
         margin: 0 auto;
+    }
+}
+%border {
+    width: 25px;
+    height: 25px;
+    position: relative;
+}
+.border-one {
+    @extend %border;
+    border-left: 1px solid $color-mint;
+    border-top: 1px solid $color-mint;
+    top: 20px;
+    left: 20px;
+}
+.border-two {
+    @extend %border;
+    border-right: 1px solid $color-mint;
+    border-top: 1px solid $color-mint;
+    top: -4px;
+    left: 250px;
+    @include respond-to($breakpoint-tablet){
+        left: 450px;
+    }
+    @include respond-to($breakpoint-desktop){
+        left: 540px;
+    }
+    @include respond-to($breakpoint-big-desktop){
+        left: 640px;
+    }
+}
+.border-three {
+    @extend %border;
+    border-right: 1px solid $color-mint;
+    border-bottom: 1px solid $color-mint;
+    top: 295px;
+    left: 250px;
+    @include respond-to($breakpoint-tablet){
+        left: 450px;
+    }
+    @include respond-to($breakpoint-desktop){
+        left: 540px;
+    }
+    @include respond-to($breakpoint-big-desktop){
+        left: 640px;
+    }
+}
+.border-four {
+    @extend %border;
+    border-left: 1px solid $color-mint;
+    border-bottom: 1px solid $color-mint;
+    top: 270px;
+    left: 20px;
+}
+.camera-img {
+    background-image: url("../img/camara.svg");
+    position: absolute;
+    top: 250px;
+    @include respond-to($breakpoint-desktop){
+        height: 162px;
+        width: 123px;
+        transform: scale(0.8);
+        left: 42px;
+    }
+    @include respond-to($breakpoint-big-desktop){
+        left: 175px;
+        transform: scale(1);
+    }
+}
+.camera-light {
+    background-image: url("../img/element-luz-camara.svg");
+    position: absolute;
+    opacity: 0.5;
+    @include respond-to($breakpoint-desktop){
+        height: 151px;
+        width: 70px;
+        transform: scale(0.8);
+        left: 148px;
+        top: 267px;
+    }
+    @include respond-to($breakpoint-big-desktop) {
+        transform: scale(1);
+        left: 300px;
+        top: 270px;
+    }
+}
+.pelicula-img {
+    background-image: url("../img/pelicula.svg");
+    position: absolute;
+    @include respond-to($breakpoint-desktop) {
+        height: 88px;
+        width: 142px;
+        transform: scale(0.8);
+        right: 50px;
+    }
+    @include respond-to($breakpoint-big-desktop) {
+        transform: scale(1);
+        right: 167px;
     }
 }

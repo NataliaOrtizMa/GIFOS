@@ -80,7 +80,8 @@
     & ul {
         @include respond-to($breakpoint-desktop) {
             display: flex;
-            width: 480px;
+            width: 500px;
+            align-items: center;
         }
     }
     & li {
@@ -91,6 +92,21 @@
         @include respond-to($breakpoint-desktop) {
             text-transform: uppercase;
             padding: 0 20px;
+        }
+    }
+}
+.nav li a.nav-more {
+    &::before {
+        content: "Más";
+    }
+    @include respond-to($breakpoint-desktop) {
+        content: url("/img/button-crear-gifo.svg");
+        &:hover {
+            border-bottom: none;
+            content: url("/img/CTA-crear-gifo-hover.svg");
+        }
+        &:active {
+            content: url("/img/CTA-crear-gifo-active.svg");
         }
     }
 }

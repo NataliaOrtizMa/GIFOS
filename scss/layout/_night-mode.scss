@@ -23,6 +23,18 @@
         }
     }
 }
+.nav li a.nav-more-night {
+    @include respond-to($breakpoint-desktop) {
+        content: url("/img/CTA-crear-gifo-modo-noc.svg");
+        &:hover {
+            border-bottom: none;
+            content: url("/img/CTA-crear-gifo-hover-modo-noc.svg");
+        }
+        &:active {
+            content: url("/img/CTA-crear-gifo-active-modo-noc.svg");
+        }
+    }
+}
 .nav-night {
     & li a {
         color: $color-white;
