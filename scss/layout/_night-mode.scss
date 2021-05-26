@@ -25,13 +25,13 @@
 }
 .nav li a.nav-more-night {
     @include respond-to($breakpoint-desktop) {
-        content: url("/img/CTA-crear-gifo-modo-noc.svg");
+        content: url("../img/CTA-crear-gifo-modo-noc.svg");
         &:hover {
             border-bottom: none;
-            content: url("/img/CTA-crear-gifo-hover-modo-noc.svg");
+            content: url("../img/CTA-crear-gifo-hover-modo-noc.svg");
         }
         &:active {
-            content: url("/img/CTA-crear-gifo-active-modo-noc.svg");
+            content: url("../img/CTA-crear-gifo-active-modo-noc.svg");
         }
     }
 }
@@ -69,9 +69,18 @@
         background-image: url("../img/CTA-ver+hover-modo-noc.svg");
     }
 }
-.favorites-night , .mis-gifos-night {
+.favorites-night , .mis-gifos-night, .create-gifo-night {
     background-color: $color-light-gray;
     border-bottom: 1px solid #222326;
+    & p.p--normal, h2{
+        color: $color-white;
+    }
+}
+.camera-img-night {
+    background-image: url("../img/camara-modo-noc.svg");
+}
+.pelicula-img-night {
+    background-image: url("../img/pelicula-modo-noc.svg");
 }
 .trending-night {
     background-color: $color-dark-gray;

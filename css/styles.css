@@ -847,6 +847,8 @@ footer__icon {
 .create-gifo {
   display: none;
   padding-top: 28px;
+  padding-bottom: 78px;
+  background-color: #FFFFFF;
 }
 .create-gifo__screen {
   width: 300px;
@@ -1024,7 +1026,7 @@ footer__icon {
   .camera-light {
     transform: scale(1);
     left: 300px;
-    top: 140px;
+    top: 270px;
   }
 }
 
@@ -1122,9 +1124,20 @@ footer__icon {
   background-image: url("../img/CTA-ver+hover-modo-noc.svg");
 }
 
-.favorites-night, .mis-gifos-night {
+.favorites-night, .mis-gifos-night, .create-gifo-night {
   background-color: #37383C;
   border-bottom: 1px solid #222326;
+}
+.favorites-night p.p--normal, .favorites-night h2, .mis-gifos-night p.p--normal, .mis-gifos-night h2, .create-gifo-night p.p--normal, .create-gifo-night h2 {
+  color: #FFFFFF;
+}
+
+.camera-img-night {
+  background-image: url("../img/camara-modo-noc.svg");
+}
+
+.pelicula-img-night {
+  background-image: url("../img/pelicula-modo-noc.svg");
 }
 
 .trending-night {

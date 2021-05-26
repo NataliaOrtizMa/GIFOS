@@ -85,6 +85,7 @@ navMore.addEventListener("click", function (ev) {
     gifosSection.style.display = 'none';
     predefView();
     searchbar.classList.remove("sticky-header");
+    
 })
 
 function predefView() {

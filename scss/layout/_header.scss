@@ -100,13 +100,13 @@
         content: "Más";
     }
     @include respond-to($breakpoint-desktop) {
-        content: url("/img/button-crear-gifo.svg");
+        content: url("../img/button-crear-gifo.svg");
         &:hover {
             border-bottom: none;
-            content: url("/img/CTA-crear-gifo-hover.svg");
+            content: url("../img/CTA-crear-gifo-hover.svg");
         }
         &:active {
-            content: url("/img/CTA-crear-gifo-active.svg");
+            content: url("../img/CTA-crear-gifo-active.svg");
         }
     }
 }
