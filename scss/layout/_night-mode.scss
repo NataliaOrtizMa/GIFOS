@@ -76,6 +76,20 @@
         color: $color-white;
     }
 }
+.start-button-night {
+    color: $color-white;
+    background-color: $color-light-gray;
+    border: 1px solid $color-white;
+    &:hover {
+        color: $color-light-gray;
+        background-color: $color-white;
+    }
+}
+.step-one-gifo-night, .step-two-gifo-night, .step-three-gifo-night {
+    background-color: $color-light-gray;
+    border: 1px solid $color-white;
+    color: $color-white;
+}
 .camera-img-night {
     background-image: url("../img/camara-modo-noc.svg");
 }

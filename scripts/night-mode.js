@@ -9,11 +9,15 @@ const searchResults = document.getElementById("search-results");
 const trending = document.getElementById("trending");
 const cameraImg = document.getElementById("camera-img");
 const peliculaImg = document.getElementById("pelicula-img");
+const startButton = document.getElementById("start-button");
 const footer = document.getElementById("footer");   
 const pNight = document.getElementById("p-night");
 const facebookIcon = document.getElementById("facebook-icon");
 const twitterIcon = document.getElementById("twitter-icon");
 const instagramIcon = document.getElementById("instagram-icon");
+const stepOneGifo = document.getElementById("step-one-gifo");
+const stepTwoGifo = document.getElementById("step-two-gifo");
+const stepThreeGifo = document.getElementById("step-three-gifo");
 
 let nightMode = 0;
 
@@ -61,6 +65,10 @@ navNight.addEventListener("click", function (ev) {
     favoritesSection.classList.toggle("favorites-night");
     gifosSection.classList.toggle("mis-gifos-night");
     createGifoSection.classList.toggle("mis-gifos-night");
+    startButton.classList.toggle("start-button-night");
+    stepOneGifo.classList.toggle("step-one-gifo-night");
+    stepTwoGifo.classList.toggle("step-two-gifo-night");
+    stepThreeGifo.classList.toggle("step-three-gifo-night");
     cameraImg.classList.toggle("camera-img-night");
     peliculaImg.classList.toggle("pelicula-img-night");
     trending.classList.toggle("trending-night");

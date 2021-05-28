@@ -48,19 +48,6 @@
         margin-top: 25px;
         display: flex;
         justify-content: center;
-        &--one, &--two, &--three{
-            width: 32px;
-            height: 32px;
-            border-radius: 32px;
-            background-color: $color-white;
-            border: 1px solid $color-purple;
-            color: $color-purple;
-            margin-left: 13px;
-            margin-right: 13px;
-            font-size: 18px;
-            font-family: $secondary-font;
-            line-height: 30px;
-        }
     }
     &__division {
         width: 75%;
@@ -69,6 +56,43 @@
         border-radius: 10px;
         background-color: $color-purple;
         margin: 0 auto;
+    }
+}
+.video-box {
+    width: 260px;
+    height: 270px;
+    position: relative;
+    bottom: 235px;
+    @include respond-to($breakpoint-tablet){
+        width: 480px;
+        height: 320px;
+    }
+}
+.step-one-gifo, .step-two-gifo, .step-three-gifo {
+    width: 32px;
+    height: 32px;
+    border-radius: 32px;
+    background-color: $color-white;
+    border: 1px solid $color-purple;
+    color: $color-purple;
+    margin-left: 13px;
+    margin-right: 13px;
+    font-size: map-get($fs,"pc-normal");
+    font-family: $secondary-font;
+    line-height: 30px;
+}
+.date, .repeat-video {
+    display: none;
+    position: relative;
+    bottom: 15px;
+    font-family: $primary-font;
+    font-weight: bold;
+    font-size: map-get($fs,"x-small");
+    @include respond-to($breakpoint-desktop){
+        font-size: map-get($fs,"small");
+        left: 20%;
+        bottom: 70px;
+        // right: 220px;
     }
 }
 %border {

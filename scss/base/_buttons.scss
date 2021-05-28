@@ -45,9 +45,15 @@
     height: 50px;
     border-radius: 25px;
     color: $color-purple;
+    background-color: $color-white;
     font-size: 13px;
     font-weight: bold;
     font-family: $primary-font;
     border: 1px solid $color-purple;
     margin-top: 20px;
+    &:hover {
+        color: $color-white;
+        background-color: $color-purple;
+    }
 }
+
