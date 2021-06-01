@@ -892,7 +892,6 @@ footer__icon {
 }
 .create-gifo h2 {
   color: #572EE5;
-  margin-top: 40px;
   line-height: 35px;
 }
 @media only screen and (min-width: 768px) {
@@ -916,20 +915,73 @@ footer__icon {
   margin: 0 auto;
 }
 
-.video-box {
-  width: 260px;
-  height: 270px;
+.video-container {
+  margin: 0 auto;
+  margin-top: 50px;
+  width: 240px;
+  height: 180px;
   position: relative;
   bottom: 235px;
 }
 @media only screen and (min-width: 768px) {
-  .video-box {
-    width: 480px;
-    height: 320px;
+  .video-container {
+    width: 400px;
+    height: 290px;
   }
 }
 
-.step-one-gifo, .step-two-gifo, .step-three-gifo {
+.video-box {
+  width: 100%;
+}
+
+.video-info {
+  width: 100%;
+  display: none;
+  position: relative;
+  bottom: 101%;
+  height: 100%;
+  padding-top: 70px;
+  background-color: #572EE5B3;
+}
+@media only screen and (min-width: 768px) {
+  .video-info {
+    height: 103%;
+    bottom: 104%;
+    padding-top: 110px;
+  }
+}
+.video-info__icons {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+}
+.video-info__text {
+  color: #FFFFFF;
+  font-size: 13px;
+  font-family: "Montserrat", sans-serif;
+}
+@media only screen and (min-width: 768px) {
+  .video-info__text {
+    font-size: 15px;
+  }
+}
+
+.video-status {
+  width: 24px;
+  height: 24px;
+  background-repeat: no-repeat;
+  margin-bottom: 10px;
+}
+
+.link-icon {
+  background: url("../img/icon-link-normal.svg");
+}
+.link-icon:hover {
+  background: url("../img/icon-link-hover.svg");
+}
+
+.create-gifo-step {
   width: 32px;
   height: 32px;
   border-radius: 32px;
@@ -943,7 +995,13 @@ footer__icon {
   line-height: 30px;
 }
 
+.create-gifo-step-selected {
+  background-color: #572EE5;
+  color: #FFFFFF;
+}
+
 .date, .repeat-video {
+  display: none;
   position: relative;
   bottom: 15px;
   font-family: "Montserrat", sans-serif;
@@ -956,10 +1014,6 @@ footer__icon {
     left: 20%;
     bottom: 70px;
   }
-}
-
-.repeat-video {
-  display: none;
 }
 
 .border-four, .border-three, .border-two, .border-one {
@@ -1180,10 +1234,15 @@ footer__icon {
   background-color: #FFFFFF;
 }
 
-.step-one-gifo-night, .step-two-gifo-night, .step-three-gifo-night {
+.create-gifo-step-night {
   background-color: #37383C;
   border: 1px solid #FFFFFF;
   color: #FFFFFF;
+}
+
+.create-gifo-step-night-selected {
+  background-color: #FFFFFF;
+  color: #37383C;
 }
 
 .camera-img-night {

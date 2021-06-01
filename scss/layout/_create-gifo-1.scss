@@ -34,7 +34,6 @@
     }
     & h2 {
         color: $color-purple;
-        margin-top: 40px;
         line-height: 35px;
     }
     &__p--span::before{
@@ -58,17 +57,62 @@
         margin: 0 auto;
     }
 }
-.video-box {
-    width: 260px;
-    height: 270px;
+.video-container {
+    margin: 0 auto;
+    margin-top: 50px;
+    width: 240px;
+    height: 180px;
     position: relative;
     bottom: 235px;
     @include respond-to($breakpoint-tablet){
-        width: 480px;
-        height: 320px;
+        width: 400px;
+        height: 290px;
     }
 }
-.step-one-gifo, .step-two-gifo, .step-three-gifo {
+.video-box {
+    width: 100%;
+}
+.video-info {
+    width: 100%;
+    display: none;
+    position: relative;
+    bottom: 101%;
+    height: 100%;
+    padding-top: 70px;
+    background-color: $color-purple-transparency;
+    @include respond-to($breakpoint-tablet) {
+        height: 103%;
+        bottom: 104%;
+        padding-top: 110px;
+    }
+    &__icons {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        display: flex;
+    }
+    &__text {
+        color: $color-white;
+        font-size: 13px;
+        font-family: $primary-font;  
+        @include respond-to($breakpoint-tablet) {
+            font-size: 15px;
+        }
+    }
+}
+.video-status {
+    width: 24px;
+    height: 24px;
+    background-repeat: no-repeat;
+    margin-bottom: 10px;
+}
+.link-icon {
+    background: url("../img/icon-link-normal.svg");
+    &:hover {
+        background: url("../img/icon-link-hover.svg");
+    }
+}
+.create-gifo-step {
     width: 32px;
     height: 32px;
     border-radius: 32px;
@@ -80,6 +124,10 @@
     font-size: map-get($fs,"pc-normal");
     font-family: $secondary-font;
     line-height: 30px;
+}
+.create-gifo-step-selected {
+    background-color: $color-purple;
+    color: $color-white;
 }
 .date, .repeat-video {
     display: none;

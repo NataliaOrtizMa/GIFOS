@@ -12,8 +12,6 @@
 </head>
 <body class="body" id="body">
 
-    <!-- Arreglar de favoritos a logo -> Lupa morada a blanca -->
-    <!-- Merificar que no haya mouseover en mobile -->
     <!-- Botón ver más para favoritos -->
 
     <header class="header" id="header">
@@ -50,7 +48,7 @@
     </main>
 
     <section class="favorites" id="favorites">
-        <div class="favorites__icon"><img src="./img/icon-favoritos.svg" alt=""></div>
+        <div class="favorites__icon"><img src="./img/icon-favoritos.svg" alt="My favs icon"></div>
         <h2 class="h2">Favoritos</h2>
         
         <div class="favorites__no-results" id="favorites__no-results">
@@ -65,7 +63,7 @@
     </section>
 
     <section class="mis-gifos" id="mygifos">
-        <div class="favorites__icon"><img src="./img/icon-mis-gifos.svg" alt=""></div>
+        <div class="favorites__icon"><img src="./img/icon-mis-gifos.svg" alt="My gifos icon"></div>
         <h2 class="h2">Mis gifos</h2>
 
         <div class="gifos__no-results">
@@ -87,29 +85,33 @@
             
             <h2 class="create-gifo__h2 h2" id="create-gifo__h2">Aquí podrás <span class="create-gifo__p--span"></span>crear tus propios <span class="h1--green">GIFOS</span></h2>
             <p class="p--normal" id="create-gifo__p">¡Crea tu gifo en sólo 3 pasos! <br> (sólo necesitas una cámara para grabar un video)</p>
-            <video id="video-box" class="video-box"></video>
+            <div class="video-container">
+                <video id="video-box" class="video-box"></video>
+                <div class="video-info" id="video-info">
+                    <div class="video-info__icons">
+                        <button class="button download-icon" id="button-download" type="submit"></button>
+                        <button class="button link-icon" id="button-getlink" type="submit"></button>
+                    </div>
+                    <div class="video-info__text">
+                        <div class="video-status" id="video-status"></div>
+                        <!-- <img src="" alt="Video status"> -->
+                        <!-- <object class="video-loader" data="./img/loader.svg" type="image/svg+xml"></object> -->
+                        <h3 id="video-text-status">Estamos subiendo tu gifo</h3>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        
-        
-        <span class="camera-info" id="camera-info"></span>
-        
-        <button class="button download-icon" id="button-download" type="submit">Descargar</button>
-        <button class="button" id="button-getlink" type="submit">Get Link</button>
-        
         <div class="pelicula-img" id="pelicula-img"></div>
         <div class="create-gifo__steps">
-            <div class="step-one-gifo" id="step-one-gifo">1</div>
-            <div class="step-two-gifo" id="step-two-gifo">2</div>
-            <div class="step-three-gifo" id="step-three-gifo">3</div>
+            <div class="create-gifo-step" id="step-one-gifo">1</div>
+            <div class="create-gifo-step" id="step-two-gifo">2</div>
+            <div class="create-gifo-step" id="step-three-gifo">3</div>
         </div>
         <span class="date" id="date"></span>
         <a class="repeat-video" id="repeat-video">REPETIR CAPTURA</a>
         <div class="create-gifo__division"></div>
         <button class="start-button" id="start-button" type="submit"></button>
     </section>
-    <!-- Estoy haciendo los estilos nocturnos del button -->
-    <!-- Falta agregarlos -->
 
     <section class="search-results" id="search-results">
         <span class="divisory-line"></span>

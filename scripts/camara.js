@@ -1,6 +1,7 @@
 // const cameraButton = document.getElementById("start-button");
 const videoBox = document.getElementById("video-box");
-const cameraInfo = document.getElementById("camera-info");
+const videoInfo = document.getElementById("video-info");
+const videoStatus = document.getElementById("video-status");
 const downloadButton = document.getElementById("button-download");
 const gtLinkButton = document.getElementById("button-getlink");
 const dateBox = document.getElementById("date");
@@ -10,12 +11,6 @@ startButton.innerHTML = "COMENZAR";
 repeatVideo.style.display = "none";
 downloadButton.style.display = "none";
 gtLinkButton.style.display = "none";
-
-// const apiKey = "9P4km8pnyUnE8G052TCp83ChV6qMyjLw";
-
-// Gifo ID 
-// 0WjH5IDMn4Ah30a6Al
-
 
 function init(){
   h = 0;
@@ -79,13 +74,10 @@ async function searchById(id){
   }
 }
 
-// repeatVideo.addEventListener("click", async function (ev) {
-//   startButton.style.visibility = "visible";
-//   document.getElementById("repeat-video").style.display = "none";
-//   btn = 0
-// });
-
 let btn = 0;
+// Que cuando oprima + ponga btn = 0
+// Agregar mis gifos a vista
+// Poner night mode b numeros
 startButton.addEventListener("click", async function (ev) {
   
   startButton.style.visibility = "hidden";
@@ -93,12 +85,7 @@ startButton.addEventListener("click", async function (ev) {
   document.getElementById("create-gifo__p").innerHTML = `El acceso a tu camara será válido sólo <br>
   por el tiempo en el que estés creando el GIFO.`;
 
-  // stepOneGifo.style.backgroundColor = "#572EE5";
-  // stepOneGifo.style.color = "#FFFFFF";
-  // stepTwoGifo.style.backgroundColor = "#FFFFFF";
-  // stepTwoGifo.style.color = "#572EE5";
-  // stepThreeGifo.style.backgroundColor = "#FFFFFF";
-  // stepThreeGifo.style.color = "#572EE5";
+  stepOneGifo.classList.add("create-gifo-step-selected");
   
   if (btn == 0) {
     stream = await getCamera();
@@ -114,13 +101,11 @@ startButton.addEventListener("click", async function (ev) {
       startButton.innerHTML = "GRABAR";
       startButton.style.visibility = "visible";
       
-
-      stepOneGifo.style.backgroundColor = "#FFFFFF";
-      stepOneGifo.style.color = "#572EE5";
-      stepTwoGifo.style.backgroundColor = "#572EE5";
-      stepTwoGifo.style.color = "#FFFFFF";
-      stepThreeGifo.style.backgroundColor = "#FFFFFF";
-      stepThreeGifo.style.color = "#572EE5";
+      stepOneGifo.classList.remove("create-gifo-step-selected");
+      stepTwoGifo.classList.add("create-gifo-step-selected");
+    }
+    else {
+      stream = await getCamera();
     }
   }
   else {
@@ -140,12 +125,7 @@ startButton.addEventListener("click", async function (ev) {
       dateBox.style.display = "block";
       repeatVideo.style.display = "none";
 
-      stepOneGifo.style.backgroundColor = "#FFFFFF";
-      stepOneGifo.style.color = "#572EE5";
-      stepTwoGifo.style.backgroundColor = "#572EE5";
-      stepTwoGifo.style.color = "#FFFFFF";
-      stepThreeGifo.style.backgroundColor = "#FFFFFF";
-      stepThreeGifo.style.color = "#572EE5";
+      stepOneGifo.classList.remove("create-gifo-step-selected");
     }
     else {
       if (btn == 2) {
@@ -164,25 +144,17 @@ startButton.addEventListener("click", async function (ev) {
         dateBox.style.display = "none";
         repeatVideo.style.display = "block";
 
-        stepOneGifo.style.backgroundColor = "#FFFFFF";
-        stepOneGifo.style.color = "#572EE5";
-        stepTwoGifo.style.backgroundColor = "#572EE5";
-        stepTwoGifo.style.color = "#FFFFFF";
-        stepThreeGifo.style.backgroundColor = "#FFFFFF";
-        stepThreeGifo.style.color = "#572EE5";
+        stepOneGifo.classList.remove("create-gifo-step-selected");
 
         repeatVideo.addEventListener("click", async function (ev) {
           btn = 0;
           startButton.click();
-          // startButton.innerHTML = "GRABAR";
           startButton.style.visibility = "visible";
           repeatVideo.style.display = "none";
-          // dateBox.style.display = "block";
+          stepOneGifo.classList.toggle("create-gifo-step-selected");
           reiniciar();
           await recorder.reset();
         });
-        // repeatVideo.style.display = "block";
-        
       }
       else {
         if (btn == 3) {
@@ -190,19 +162,17 @@ startButton.addEventListener("click", async function (ev) {
           form.append('file', blob, 'myGif.gif');
           // form.append('apk', apiKey);
           console.log(form.get('file'))
-          downloadButton.style.display = "block";
-          gtLinkButton.style.display = "block";
+          
           repeatVideo.style.display = "none";
+          videoInfo.style.display = "block";
+          videoStatus.style.display = "inline-block";
+          videoStatus.style.backgroundImage = "url('./img/loader.svg')";
 
-          stepOneGifo.style.backgroundColor = "#FFFFFF";
-          stepOneGifo.style.color = "#572EE5";
-          stepTwoGifo.style.backgroundColor = "#FFFFFF";
-          stepTwoGifo.style.color = "#572EE5";
-          stepThreeGifo.style.backgroundColor = "#572EE5";
-          stepThreeGifo.style.color = "#FFFFFF";
+          stepOneGifo.classList.remove("create-gifo-step-selected");
+          stepTwoGifo.classList.remove("create-gifo-step-selected");
+          stepThreeGifo.classList.add("create-gifo-step-selected");
           
           // Fix styles gifo recorded
-          // Hide repetir captura
           
           // url = recorder.toURL();
           // console.log(url)
@@ -219,14 +189,13 @@ startButton.addEventListener("click", async function (ev) {
             .then(res => res.json())
             .then(res =>  {
               id = res.data.id;
-                
-              const gif = async () => {
-                const gifoInfo = await searchById(id);
-                console.log(gifoInfo);
-                const gifoId = gifoInfo.data.url;
-                console.log(gifoId);
-              };
-              gif();
+              downloadButton.style.display = "block";
+              gtLinkButton.style.display = "block";
+              
+              videoStatus.style.backgroundImage = "url('./img/check.svg')";
+              document.getElementById("video-text-status").innerHTML = "GIFO subido con éxito";
+              
+              
               
               // console.log(searchById(id));
               // async function() {
@@ -237,9 +206,16 @@ startButton.addEventListener("click", async function (ev) {
             
               );
               
-              // const idProps = await searchById(id);
-              // console.log(idProps)
-              
+          gtLinkButton.addEventListener("click", async function (ev) {
+            const gif = async () => {
+              const gifoInfo = await searchById(id);
+              console.log(gifoInfo);
+              const gifoId = gifoInfo.data.url;
+              console.log(gifoId);
+              window.open(gifoId,'_blank');
+            };
+            gif();
+          });
           downloadButton.addEventListener("click", async function (ev) {
             invokeSaveAsDialog(blob);
             console.log(blob)

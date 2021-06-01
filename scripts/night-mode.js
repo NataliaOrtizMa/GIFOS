@@ -4,7 +4,7 @@ const header = document.getElementById("header");
 const nav = document.getElementById("nav");
 const main = document.getElementById("main");
 const searchBar = document.getElementById("search-bar");
-const searchBarButton = document.getElementById("search-bar__button");
+const searchButton = document.getElementById("search-bar__button");
 const searchResults = document.getElementById("search-results");
 const trending = document.getElementById("trending");
 const cameraImg = document.getElementById("camera-img");
@@ -19,15 +19,14 @@ const stepOneGifo = document.getElementById("step-one-gifo");
 const stepTwoGifo = document.getElementById("step-two-gifo");
 const stepThreeGifo = document.getElementById("step-three-gifo");
 
-let nightMode = 0;
-
+let nightMode = 0
 navNight.addEventListener("click", function (ev) {
 
     if (searchButton.style.backgroundImage === 'url("./img/close.svg")') {
         searchButton.style.backgroundImage = "url('./img/close-modo-noct.svg')";
     }
     else {
-        if (searchButton.style.backgroundImage === "url(\"./img/close-modo-noct.svg\")") {
+        if (searchButton.style.backgroundImage === "url('./img/close-modo-noct.svg')") {
             searchButton.style.backgroundImage = "url('./img/close.svg')";
         }
     }
@@ -48,10 +47,6 @@ navNight.addEventListener("click", function (ev) {
         ev.target.textContent = "Modo nocturno";
         nightMode = 0;
     }
-    navFavorites.addEventListener("click", function (ev) {
-        searchBarButton.classList.add("search-bar-night__button");
-        
-    })
 
     body.classList.toggle("body-night");
     header.classList.toggle("header-night");
@@ -66,9 +61,9 @@ navNight.addEventListener("click", function (ev) {
     gifosSection.classList.toggle("mis-gifos-night");
     createGifoSection.classList.toggle("mis-gifos-night");
     startButton.classList.toggle("start-button-night");
-    stepOneGifo.classList.toggle("step-one-gifo-night");
-    stepTwoGifo.classList.toggle("step-two-gifo-night");
-    stepThreeGifo.classList.toggle("step-three-gifo-night");
+    stepOneGifo.classList.toggle("create-gifo-step-night");
+    stepTwoGifo.classList.toggle("create-gifo-step-night");
+    stepThreeGifo.classList.toggle("create-gifo-step-night");
     cameraImg.classList.toggle("camera-img-night");
     peliculaImg.classList.toggle("pelicula-img-night");
     trending.classList.toggle("trending-night");
@@ -79,5 +74,3 @@ navNight.addEventListener("click", function (ev) {
     twitterIcon.classList.toggle("twitter-icon-night");
     instagramIcon.classList.toggle("instagram-icon-night");
 })
-
-// Fix search button noc when clicking favs 

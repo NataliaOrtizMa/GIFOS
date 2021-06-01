@@ -7,10 +7,14 @@ const suggestionsList = document.querySelector('#suggestions-list');
 const divsuggestionsList = document.querySelector(".search-bar__results");
 const searchdiv = document.getElementById("search-container");
 const moreButton = document.querySelector("#more-results-btn");
-const searchButton = document.querySelector(".search-bar__button");
 const searchBarIcon = document.querySelector(".search-bar__icon");
 
-searchButton.style.backgroundImage = "url('./img/icon-search.svg')";
+if(nightMode == true) {
+    searchButton.style.backgroundImage = "url(\"./img/icon-search-mod-noc.svg\")"
+}
+else {
+    searchButton.style.backgroundImage = "url('./img/icon-search.svg')";
+}
 
 function removeAllChildNodes(parent) {
     while (parent.firstChild) {

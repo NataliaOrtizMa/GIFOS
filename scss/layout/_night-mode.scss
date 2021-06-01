@@ -85,10 +85,14 @@
         background-color: $color-white;
     }
 }
-.step-one-gifo-night, .step-two-gifo-night, .step-three-gifo-night {
+.create-gifo-step-night {
     background-color: $color-light-gray;
     border: 1px solid $color-white;
     color: $color-white;
+}
+.create-gifo-step-night-selected {
+    background-color: $color-white;
+    color: $color-light-gray;
 }
 .camera-img-night {
     background-image: url("../img/camara-modo-noc.svg");

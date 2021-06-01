@@ -16,11 +16,19 @@ const trendingSection = document.getElementById("trending");
 
 headerLogo.addEventListener("click", function (ev) {
     favoritesSection.style.display = 'none';
+    createGifoSection.style.display = 'none';
     gifosSection.style.display = 'none';
     mainSection.style.display = "block";
     searchContainer.style.display = 'none';
+    trendingSection.style.display = 'block';
     noResultsContainer.style.display = 'none';
     navBar.checked = false;
+    if(nightMode == true) {
+        searchButton.style.backgroundImage = "url(\"./img/icon-search-mod-noc.svg\")"
+    }
+    else {
+        searchButton.style.backgroundImage = "url('./img/icon-search.svg')";
+    }
 })
 
 navFavorites.addEventListener("click", function (ev) {
