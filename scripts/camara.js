@@ -55,7 +55,7 @@ async function getCamera() {
 
 async function uploadGif(options){
   try {
-      return elPost = await fetch(`http://upload.giphy.com/v1/gifs/?api_key=${apiKey}`, options)
+      return elPost = await fetch(`https://upload.giphy.com/v1/gifs/?api_key=${apiKey}`, options)
       .then(response => response.json());
   }
   catch(error) {
@@ -65,7 +65,7 @@ async function uploadGif(options){
 
 async function searchById(id){
   try {
-      const elFetch = await fetch(`http://api.giphy.com/v1/gifs/${id}?api_key=${apiKey}`);
+      const elFetch = await fetch(`https://api.giphy.com/v1/gifs/${id}?api_key=${apiKey}`);
       data = await elFetch.json();
       return data;
   }
