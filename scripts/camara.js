@@ -76,46 +76,45 @@ async function searchById(id){
 
 let btn = 0;
 // Que cuando oprima + ponga btn = 0
-// Agregar mis gifos a vista
+// Agregar mis gifos a vista (guardar Id en local storage, traer info)
 // Poner night mode b numeros
+// Arreglar local type: my gifos/my favs
+// Agregar hover my-gifos con btn delete
+// Agregar max en my gifos
 startButton.addEventListener("click", async function (ev) {
-  
   startButton.style.visibility = "hidden";
   document.getElementById("create-gifo__h2").innerHTML = "¿Nos das acceso <br> a tu cámara?";
-  document.getElementById("create-gifo__p").innerHTML = `El acceso a tu camara será válido sólo <br>
-  por el tiempo en el que estés creando el GIFO.`;
-
+  document.getElementById("create-gifo__p").innerHTML = `El acceso a tu camara será válido sólo <br> por el tiempo en el que estés creando el GIFO.`;
+ 
   stepOneGifo.classList.add("create-gifo-step-selected");
-  
+
   if (btn == 0) {
     stream = await getCamera();
-    console.log(stream)
-    
+    console.log(stream);
+
     if (stream.active == true) {
       btn = 1;
       console.log("Paso 1");
 
       videoBox.srcObject = stream;
-      videoBox.play();      
+      videoBox.play();
 
       startButton.innerHTML = "GRABAR";
       startButton.style.visibility = "visible";
-      
+
       stepOneGifo.classList.remove("create-gifo-step-selected");
       stepTwoGifo.classList.add("create-gifo-step-selected");
-    }
-    else {
+    } else {
       stream = await getCamera();
     }
-  }
-  else {
+  } else {
     if (btn == 1) {
       btn = 2;
       console.log("Paso 2");
 
-      recorder = RecordRTC(stream, {type: 'gif'});
+      recorder = RecordRTC(stream, { type: "gif" });
       recorder.startRecording();
-      
+
       init();
       cronometrar();
 
@@ -126,18 +125,17 @@ startButton.addEventListener("click", async function (ev) {
       repeatVideo.style.display = "none";
 
       stepOneGifo.classList.remove("create-gifo-step-selected");
-    }
-    else {
+    } else {
       if (btn == 2) {
         btn = 3;
         console.log("Paso 3");
 
-        await recorder.stopRecording(function() {
+        await recorder.stopRecording(function () {
           blob = recorder.getBlob();
         });
-        
+
         parar();
-        
+
         startButton.style.visibility = "visible";
         startButton.innerHTML = "SUBIR GIFO";
 
@@ -155,14 +153,13 @@ startButton.addEventListener("click", async function (ev) {
           reiniciar();
           await recorder.reset();
         });
-      }
-      else {
+      } else {
         if (btn == 3) {
           let form = new FormData();
-          form.append('file', blob, 'myGif.gif');
+          form.append("file", blob, "myGif.gif");
           // form.append('apk', apiKey);
-          console.log(form.get('file'))
-          
+          console.log(form.get("file"));
+
           repeatVideo.style.display = "none";
           videoInfo.style.display = "block";
           videoStatus.style.display = "inline-block";
@@ -171,60 +168,68 @@ startButton.addEventListener("click", async function (ev) {
           stepOneGifo.classList.remove("create-gifo-step-selected");
           stepTwoGifo.classList.remove("create-gifo-step-selected");
           stepThreeGifo.classList.add("create-gifo-step-selected");
-          
+
           // Fix styles gifo recorded
-          
+
           // url = recorder.toURL();
           // console.log(url)
           // console.log(recorder.getDataURL(url))
           let options = {
-            method: 'POST',
+            method: "POST",
             body: form,
-            redirect: 'follow'
-          }
+            redirect: "follow",
+          };
           // window.localStorage.clear();
-          urll = `http://upload.giphy.com/v1/gifs?api_key=${apiKey}`
+          urll = `https://upload.giphy.com/v1/gifs?api_key=${apiKey}`;
           // uploadGif(options)
           fetch(urll, options)
-            .then(res => res.json())
-            .then(res =>  {
+            .then((res) => res.json())
+            .then((res) => {
+              console.log(res)
               id = res.data.id;
+
+              const gifInfo = gif();
+              console.log(gifInfo);
+
+
               downloadButton.style.display = "block";
               gtLinkButton.style.display = "block";
-              
+
               videoStatus.style.backgroundImage = "url('./img/check.svg')";
               document.getElementById("video-text-status").innerHTML = "GIFO subido con éxito";
-              
-              
-              
-              // console.log(searchById(id));
-              // async function() {
-              // searchById(res.data.id);
-              }
-              // console.log(res.data)}}
-            // }
-            
-              );
-              
+            });
+
           gtLinkButton.addEventListener("click", async function (ev) {
-            const gif = async () => {
-              const gifoInfo = await searchById(id);
-              console.log(gifoInfo);
-              const gifoId = gifoInfo.data.url;
-              console.log(gifoId);
-              window.open(gifoId,'_blank');
-            };
-            gif();
+            
+          // Poner Gif Url
           });
           downloadButton.addEventListener("click", async function (ev) {
             invokeSaveAsDialog(blob);
-            console.log(blob)
+            console.log(blob);
           });
         }
-      } 
+      }
     }
     // Else para cuando no se activa la cámara
   }
+});
 
-})
+const gif = async () => {
+  const gifoInfo = await searchById(id);
+  let Gif = {
+    source: gifoInfo.data.images.fixed_width_still.url,
+    sourceQuality: gifoInfo.data.images.fixed_width.webp,
+    downloadUrl: gifoInfo.data.images.original.url,
+    gifUserName: gifoInfo.data.username ? gifoInfo.data.username : 'No Username',
+    gifName: gifoInfo.data.title ? gifoInfo.data.title : 'No Title',
+    gifId: gifoInfo.data.id,
+    isMine: true
+  };
+  const gifInfo = JSON.stringify(Gif);
+  localStorage.setItem(Gif.gifId, gifInfo);
+  // console.log(gifoInfo);
+  const gifoId = gifoInfo.data.url;
+  console.log(gifoId);
+  window.open(gifoId, "_blank");
+};
   

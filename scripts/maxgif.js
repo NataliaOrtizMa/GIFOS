@@ -67,13 +67,15 @@ function addGifFav(ev) {
         favIcon = ev.target;
         gifo = ev.target.parentNode.parentNode.previousElementSibling.parentNode;
         isFav = localStorage.getItem(gifo.info.gifId);
-        const gifInfo = JSON.stringify(gifo.info);
+        const gifInfo = JSON.stringify(gifo.info); 
         
         if (isFav == null) {  //If the gifo is not in localStorage
             localStorage.setItem(gifo.info.gifId, gifInfo);
+            favsCount += 1;
+            console.log(favsCount)
             favIcon.style.backgroundImage = "url('./img/icon-fav-active.svg')";
             if (favoritesSection.style.display == 'block') {
-                if(localStorage.length == 1) {
+                if(localStorage.length == 1 || favsCount == 1) {
                     favoritesResults.style.display = 'block';
                     favoritesNoResults.style.display = 'none';
                 }
@@ -83,15 +85,18 @@ function addGifFav(ev) {
             }
         } else {
             localStorage.removeItem(gifo.info.gifId);
+            favsCount -= 1;
+            console.log(favsCount)
             favIcon.style.backgroundImage = "url('./img/icon-fav.svg')";
             if (favoritesSection.style.display == 'block') {
                 favsContainer.removeChild(gifo);
-                if(localStorage.length == 0) {
+                if(localStorage.length == 0 || favsCount == 0) {
                     favoritesNoResults.style.display = 'block';
                     favoritesResults.style.display = 'none';
                 } 
             }
         }
+        
     }
 }
 

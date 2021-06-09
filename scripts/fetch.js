@@ -1,7 +1,5 @@
 const url = "https://api.giphy.com/v1/";
-// const apiKey = "9P4km8pnyUnE8G052TCp83ChV6qMyjLw";
-const apiKey = "VZ4N6ebz6BSdgrhUNiKAAU0dNYws5GSn";
-// const apiKey = "0m6p9UIK0QqEfA8GmlLnGoKcW873s8Ld";
+const apiKey = "9P4km8pnyUnE8G052TCp83ChV6qMyjLw";
 
 async function autocomplete(input){
     try {
