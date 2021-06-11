@@ -61,12 +61,12 @@
     margin: 0 auto;
     // margin-top: 50px;
     width: 240px;
-    height: auto;
+    height: 180px;
     position: relative;
     bottom: 235px;
     @include respond-to($breakpoint-tablet){
         width: 400px;
-        height: auto;
+        height: 290px;
     }
 }
 .video-box {
