@@ -74,7 +74,7 @@
     height: auto;
     padding-top: 0;
     position: relative;
-    bottom: 30px;
+    bottom: 50px;
     @include respond-to($breakpoint-tablet){
         padding-top: 50px;
         bottom: 0;
