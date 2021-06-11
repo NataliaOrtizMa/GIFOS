@@ -932,7 +932,9 @@ footer__icon {
 .video-box {
   width: 100%;
   height: auto;
-  padding-top: 5px;
+  padding-top: 0;
+  position: relative;
+  bottom: 10px;
 }
 @media only screen and (min-width: 768px) {
   .video-box {
