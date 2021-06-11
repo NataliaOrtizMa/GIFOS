@@ -59,19 +59,20 @@
 }
 .video-container {
     margin: 0 auto;
-    margin-top: 50px;
+    // margin-top: 50px;
     width: 240px;
-    height: 180px;
+    height: auto;
     position: relative;
     bottom: 235px;
     @include respond-to($breakpoint-tablet){
         width: 400px;
-        height: 290px;
+        height: auto;
     }
 }
 .video-box {
     width: 100%;
-    height: 100%;
+    height: auto;
+    padding-top: 50px;
 }
 .video-info {
     width: 100%;
