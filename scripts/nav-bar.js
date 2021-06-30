@@ -137,7 +137,7 @@ navGifos.addEventListener("click", function (ev) {
                 if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
                 } 
                 else{
-                    hoverItems(galleryItem,imagen.info.gifUserName, imagen.info.gifName);
+                    hoverMyGifos(galleryItem,imagen.info.gifUserName, imagen.info.gifName);
                 }
                 mygifosContainer.append(galleryItem);
             }

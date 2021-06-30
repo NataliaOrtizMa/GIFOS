@@ -189,7 +189,7 @@ startButton.addEventListener("click", async function (ev) {
               id = res.data.id;
 
               const gifInfo = gif();
-              console.log(gifInfo);
+              console.log(id);
 
 
               downloadButton.style.display = "block";
@@ -200,12 +200,17 @@ startButton.addEventListener("click", async function (ev) {
             });
 
           gtLinkButton.addEventListener("click", async function (ev) {
-            
+            gifoInfo = JSON.parse(localStorage.getItem(id));
+            // console.log(gifoInfo);
+            let gifoId = gifoInfo.source;
+            console.log(gifoId);
+            window.open(gifoId, "_blank");
           // Poner Gif Url
           });
           downloadButton.addEventListener("click", async function (ev) {
             invokeSaveAsDialog(blob);
             console.log(blob);
+            
           });
         }
       }
@@ -227,9 +232,5 @@ const gif = async () => {
   };
   const gifInfo = JSON.stringify(Gif);
   localStorage.setItem(Gif.gifId, gifInfo);
-  // console.log(gifoInfo);
-  const gifoId = gifoInfo.data.url;
-  console.log(gifoId);
-  window.open(gifoId, "_blank");
 };
   

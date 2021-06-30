@@ -16,6 +16,7 @@ async function search(input, offset){
     try {
         const elFetch = await fetch(`${url}gifs/search?q=${input}&api_key=${apiKey}&limit=12&offset=${offset}`);
         data = await elFetch.json();
+        console.log(data)
         return data;
     }
     catch(error) {

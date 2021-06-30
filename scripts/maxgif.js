@@ -124,10 +124,10 @@ maxGifContainer.addEventListener("click", async function (ev) {
 
 trendingGifsContainer.addEventListener("mouseover", async function (ev) {
     if (ev.target.id === 'button-download') {
-        ev.target.addEventListener("click", async function (ev) {
+        ev.target.onclick = async function (ev) {
             imgGif = ev.target.parentNode.parentNode.previousElementSibling.parentNode;
             fetchBlob(imgGif);
-        }) 
+        }
     }
     if (ev.target.id === 'fav-icon') {
         if (isFav == null){
@@ -151,10 +151,10 @@ trendingGifsContainer.addEventListener("mouseover", async function (ev) {
 })
 searchGifsContainer.addEventListener("mouseover", async function (ev) {
     if (ev.target.id === 'button-download') {
-        ev.target.addEventListener("click", async function (ev) {
+        ev.target.onclick = async function (ev) {
             imgGif = ev.target.parentNode.parentNode.previousElementSibling.parentNode;
             fetchBlob(imgGif);
-        }) 
+        }
     }
     if (ev.target.id === 'fav-icon') {
         if (isFav == null){
@@ -178,10 +178,10 @@ searchGifsContainer.addEventListener("mouseover", async function (ev) {
 })
 favsContainer.addEventListener("mouseover", async function (ev) {
     if (ev.target.id === 'button-download') {
-        ev.target.addEventListener("click", async function (ev) {
+        ev.target.onclick =  async function (ev) {
             imgGif = ev.target.parentNode.parentNode.previousElementSibling.parentNode;
             fetchBlob(imgGif);
-        }) 
+        }
     }
     if (ev.target.id === 'fav-icon') {
         if (isFav == null){
@@ -203,6 +203,37 @@ favsContainer.addEventListener("mouseover", async function (ev) {
         }
     }
 })
+mygifosContainer.addEventListener("mouseover", async function (ev) {
+    if (ev.target.id === 'button-download') {
+        ev.target.onclick = async function(ev) {
+            imgGif = ev.target.parentNode.parentNode.previousElementSibling.parentNode;
+            fetchBlob(imgGif);
+        }
+        // ev.target.addEventListener("click", async function (ev) {
+        //     imgGif = ev.target.parentNode.parentNode.previousElementSibling.parentNode;
+        //     fetchBlob(imgGif);
+        // }) 
+    }
+    if (ev.target.id === 'trash-icon') {
+        if (isMine == null){
+            ev.target.style.backgroundImage = "url('./img/icon-trash-hover.svg')";
+        }
+        else {
+            favIcon.style.backgroundImage = "url('./img/icon-trash-normal.svg')";
+        }
+    }
+    if (ev.target.id === 'carousel-item__details') {
+        favIcon = ev.target.firstElementChild.firstElementChild;
+        gifo = ev.target.previousElementSibling.parentNode;
+        isMine = localStorage.getItem(gifo.info.gifId);
+        if (isMine == null){
+            ev.target.style.backgroundImage = "url('./img/icon-trash-hover.svg')";
+        }
+        else {
+            favIcon.style.backgroundImage = "url('./img/icon-trash-normal.svg')";
+        }
+    }
+})
 
 trendingGifsContainer.addEventListener("click", function (ev) {
     maxGif = clickGifo(ev);
@@ -213,6 +244,12 @@ searchGifsContainer.addEventListener("click", function (ev) {
     addGifInfo(ev);
 })
 favsContainer.addEventListener("click", function (ev) {
+    clickGifo(ev);
+    addGifInfo(ev);
+})
+
+// Quitar corazón cuando esté maximizado
+mygifosContainer.addEventListener("click", function (ev) {
     clickGifo(ev);
     addGifInfo(ev);
 })

@@ -9,6 +9,8 @@ const searchdiv = document.getElementById("search-container");
 const moreButton = document.querySelector("#more-results-btn");
 const searchBarIcon = document.querySelector(".search-bar__icon");
 
+let totalResults;
+
 if(nightMode == true) {
     searchButton.style.backgroundImage = "url(\"./img/icon-search-mod-noc.svg\")"
 }
@@ -41,11 +43,18 @@ async function displayGifos(texto, count) {
         
         gifosGallery(searchResults);
         count+=12;
+        totalResults-=12;
     }
 }
+// PARA PROBAR sssssssss
 
 async function gifosGallery(searchResults) {
-    for(var i=0; i<12; i++) {
+    totalResults = searchResults.pagination.total_count;
+    console.log(totalResults);
+    if (totalResults <= 12) {
+        moreButton.style.display = 'none';
+    }
+    searchResults.data.forEach(search => {
         const galleryItem = document.createElement('div');
         galleryItem.classList.add("carousel-item");
         galleryItem.id = "carousel-item";
@@ -55,12 +64,12 @@ async function gifosGallery(searchResults) {
         imagen.id = ("carousel-item__img");
 
         let Gif = {
-            source: searchResults.data[i].images.fixed_width_still.url,
-            sourceQuality: searchResults.data[i].images.fixed_width.webp,
-            downloadUrl: searchResults.data[i].images.original.url,
-            gifUserName: searchResults.data[i].username ? searchResults.data[i].username : 'No Username',
-            gifName: searchResults.data[i].title ? searchResults.data[i].title : 'No Title',
-            gifId: searchResults.data[i].id,
+            source: search.images.fixed_width_still.url,
+            sourceQuality: search.images.fixed_width.webp,
+            downloadUrl: search.images.original.url,
+            gifUserName: search.username ? searchResults.username : 'No Username',
+            gifName: search.title ? searchResults.title : 'No Title',
+            gifId: search.id,
         };
         imagen.info = Gif;
         imagen.src = Gif.source;
@@ -76,7 +85,7 @@ async function gifosGallery(searchResults) {
             hoverItems(galleryItem,imagen.info.gifUserName, imagen.info.gifName);
         }
         searchdiv.append(galleryItem);
-    }
+    });
 }
 
 input.oninput = async function() {
@@ -85,6 +94,7 @@ input.oninput = async function() {
     removeAllChildNodes(suggestionsList);
     suggestionsList.style.display = 'block';
     divsuggestionsList.style.display = 'block';
+    noResultsContainer.style.display = 'none';
 
     if (nightMode == 1) {
         searchButton.style.backgroundImage = "url('./img/close-modo-noct.svg')";
@@ -177,6 +187,7 @@ trendContainer.addEventListener("click", async function (ev) {
         count = 0;
         displayGifos(texto, count);
         searchBarIcon.style.visibility = 'hidden';
+        noResultsContainer.style.display = 'none';
         // searchButton.style.backgroundImage = "url('./img/close.svg')";
         if (nightMode == 1) {
             searchButton.style.backgroundImage = "url('./img/close-modo-noct.svg')";
@@ -188,8 +199,12 @@ trendContainer.addEventListener("click", async function (ev) {
 
 moreButton.addEventListener("click", async function () {
     count+=12;
+    totalResults-=12;
     const searchResults = await search(texto,count);
     gifosGallery(searchResults);
+    if (totalResults <= 12) {
+        moreButton.style.display = 'none';
+    }
 })
 
 

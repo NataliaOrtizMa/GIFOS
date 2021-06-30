@@ -120,6 +120,12 @@
         background: url("../img/icon-link-hover.svg");
     }
 }
+.trash-icon {
+    background: url("../img/icon-trash-normal.svg");
+    &:hover {
+        background: url("../img/icon-trash-hover.svg");
+    }
+}
 .create-gifo-step {
     width: 32px;
     height: 32px;
