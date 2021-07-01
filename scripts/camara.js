@@ -2,7 +2,7 @@
 const videoBox = document.getElementById("video-box");
 const videoInfo = document.getElementById("video-info");
 const videoStatus = document.getElementById("video-status");
-const downloadButton = document.getElementById("button-download");
+const downloadButton = document.getElementById("button-download-video");
 const gtLinkButton = document.getElementById("button-getlink");
 const dateBox = document.getElementById("date");
 const repeatVideo = document.getElementById("repeat-video");
@@ -75,6 +75,9 @@ async function searchById(id){
 }
 
 let btn = 0;
+navMore.onclick = async function (ev) {
+  btn = 0
+}
 // Que cuando oprima + ponga btn = 0
 // Agregar mis gifos a vista (guardar Id en local storage, traer info)
 // Poner night mode b numeros
@@ -82,6 +85,7 @@ let btn = 0;
 // Agregar hover my-gifos con btn delete
 // Agregar max en my gifos
 startButton.addEventListener("click", async function (ev) {
+  
   startButton.style.visibility = "hidden";
   document.getElementById("create-gifo__h2").innerHTML = "¿Nos das acceso <br> a tu cámara?";
   document.getElementById("create-gifo__p").innerHTML = `El acceso a tu camara será válido sólo <br> por el tiempo en el que estés creando el GIFO.`;
